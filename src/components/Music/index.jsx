@@ -7,11 +7,11 @@ const Music = () => {
     <div>
       <h2>Music</h2>
       <div>
-        <div>
+        {/* <div>
           <Link to="calendar" className="link">
             Calendar
           </Link>
-        </div>
+        </div> */}
         <div>
           <Link to="transcriptions" className="link">
             Transcriptions
