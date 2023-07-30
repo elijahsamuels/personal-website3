@@ -1,0 +1,15 @@
+.album-image {
+	width: 200px;
+	height: auto;
+}
+
+/* .album-details {
+	display: none;
+	transition: 1000ms ease-in-out;
+	
+} */
+
+/* .album-image:hover + div {
+	display:contents;
+	transition: 1000ms ease-in-out;
+} */

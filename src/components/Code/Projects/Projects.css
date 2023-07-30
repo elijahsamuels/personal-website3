@@ -1,0 +1,70 @@
+.project {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 12px;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgb(200, 200, 200);
+  transition: 250ms ease-in-out;
+  font-size: 1.5rem;
+}
+
+.project:hover {
+  transform: scale(101%);
+  box-shadow: 4px 4px 4px rgb(255, 255, 255);
+  transition: 250ms ease-in-out;
+}
+.project:hover .project-name {
+	color: #a2acf3;
+  transition: 250ms ease-in-out;
+}
+.project:hover .project-name:hover {
+	color: #7fcf8c;
+  transition: 250ms ease-in-out;
+}
+
+.project-name {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  transition: 250ms ease-in-out;
+}
+
+.prod-link,
+.github-link {
+  text-decoration: none;
+  color: #ffffff;
+  transition: 250ms ease-in-out;
+}
+
+/* 
+.prod-link:hover {
+	color: #7080f5;
+  transition: 250ms ease-in-out;
+  /* transform: scale(110%); 
+} 
+*/
+
+.github-link:hover {
+  transition: 250ms ease-in-out;
+  color: #ffffffaa;
+  transform: scale(110%);
+}
+
+.project-social-media-links {
+  display: flex;
+  justify-content: center;
+}
+
+.project-skills {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.project-description {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+}

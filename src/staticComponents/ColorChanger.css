@@ -1,0 +1,7 @@
+.fadeletter {
+	color: rgba(255, 0, 0, 0.87);
+  transition: 500ms ease-in-out;
+	/* font-size: 50px; */
+	/* WebkitTransition: "all 1 ease";
+	MozTransition: "all 1 ease"; */
+}

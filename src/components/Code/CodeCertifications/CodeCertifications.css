@@ -1,0 +1,12 @@
+.certification {
+  width: 300px;
+  height: 200px;
+  transition: 500ms ease-in-out;
+  margin: 5px;
+  border-radius: 5px;
+}
+.certification:hover {
+  width: 600px;
+  height: 400px;
+  transition: 500ms ease-in-out;
+}
