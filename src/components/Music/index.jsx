@@ -1,17 +1,17 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-// import GoogleCalendar from "./music/Calendar.jsx";
+// import GoogleCalendar from "./Music/Calendar.jsx";
 
 const Music = () => {
   return (
     <div>
       <h2>Music</h2>
       <div>
-        {/* <div>
+        <div>
           <Link to="calendar" className="link">
             Calendar
           </Link>
-        </div> */}
+        </div>
         <div>
           <Link to="transcriptions" className="link">
             Transcriptions

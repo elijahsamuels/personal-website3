@@ -1,10 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// import Greeting from "./components/Greeting";
 import About from "./components/About";
 import Index from "./components/Index";
 import Music from "./components/Music";
-// import Calendar from "./components/Music/Calendar";
+import Calendar from "./components/Music/Calendar";
 import Transcriptions from "./components/Music/Transcriptions";
 import Audio from "./components/Music/Audio";
 import Video from "./components/Music/Video";
@@ -28,7 +27,7 @@ const App = () => {
           <Route path="/" element={<Index />} />
           <Route path="about" element={<About />} />
           <Route path="music" element={<Music />}>
-            {/* <Route path="calendar" element={<Calendar />} /> */}
+            <Route path="calendar" element={<Calendar />} />
             <Route path="transcriptions" element={<Transcriptions />} />
             <Route path="audio" element={<Audio />} />
             <Route path="video" element={<Video />} />
