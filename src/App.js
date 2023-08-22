@@ -12,6 +12,7 @@ import Projects from "./components/Code/Projects";
 import Skills from "./components/Code/Skills";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
+import DenverSkyline from "./components/DenverSkyline";
 // import { Navbar2 as Navbar } from "./components/Navbar2";
 import Contact from "./components/Contact";
 
@@ -26,6 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="about" element={<About />} />
+          <Route path="denverskyline" element={<DenverSkyline />} />
           <Route path="music" element={<Music />}>
             <Route path="calendar" element={<Calendar />} />
             <Route path="transcriptions" element={<Transcriptions />} />
