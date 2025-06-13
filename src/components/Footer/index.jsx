@@ -1,5 +1,5 @@
 import React from "react";
-import { SiFacebook, SiLinkedin, SiGithub } from "react-icons/si";
+import { SiFacebook, SiLinkedin, SiGithub, SiGitlab } from "react-icons/si";
 import { VscMail } from "react-icons/vsc";
 import "./Footer.css";
 
@@ -19,6 +19,13 @@ const Footer = () => {
         rel="noreferrer"
         className="link social-media-icon">
         <SiGithub size="1em" />
+      </a>
+      <a
+        href="https://gitlab.com/elijahsamuels"
+        target="_blank"
+        rel="noreferrer"
+        className="link social-media-icon">
+        <SiGitlab size="1em" />
       </a>
       <a
         href="https://www.facebook.com/elijah.samuels.1"

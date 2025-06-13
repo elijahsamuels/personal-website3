@@ -1,13 +1,14 @@
-import React from "react";
-// import ColorChanger from "../staticComponents/ColorChanger";
 import Greeting from "../staticComponents/Greeting";
+import About from "../components/About";
+import Projects from "../components/Code/Projects";
 
 const Index = () => {
   return (
-    <div>
-      {/* <div>Index</div> */}
+    <>
       <Greeting />
-    </div>
+      <About />
+      {/* <Projects /> */}
+    </>
   );
 };
 

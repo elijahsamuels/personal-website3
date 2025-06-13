@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
 import useWindowSize from "../../hooks/useWindowSize";
@@ -22,15 +21,15 @@ const Navbar = () => {
           <NavLink to="/about" className="nav-link">
             About
           </NavLink>
-          <NavLink to="/code" className="nav-link">
+          {/* <NavLink to="/code" className="nav-link">
             Code
-          </NavLink>
-          <NavLink to="/music" className="nav-link">
+          </NavLink> */}
+          {/* <NavLink to="/music" className="nav-link">
             Music
-          </NavLink>
-          <NavLink to="/contact" className="nav-link">
+          </NavLink> */}
+          {/* <NavLink to="/contact" className="nav-link">
             Contact
-          </NavLink>
+          </NavLink> */}
         </span>
       </nav>
     );

@@ -1,4 +1,11 @@
 .greeting {
+	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 500ms ease-in-out;
+  font-size: 50px;
 	/* color: rgba(255, 0, 0, 0.87); */
   transition: 500ms ease-in-out;
 	size: 50px;
