@@ -1,13 +1,13 @@
-import Greeting from "../staticComponents/Greeting";
+import Greeting from "../staticComponents/Greeting.jsx";
 import About from "../components/About";
-// import Projects from "../components/Code/Projects";
+import Projects from "../components/Code/Projects";
 
 const Index = () => {
   return (
     <>
       <Greeting />
       <About />
-      {/* <Projects /> */}
+      <Projects />
     </>
   );
 };

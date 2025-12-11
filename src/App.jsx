@@ -1,39 +1,43 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
+import SpherePage from "./components/SpherePage";
 import About from "./components/About";
+import Blog from "./components/Blog";
+import BlogPostDetail from "./components/Blog/BlogPostDetail";
 import Index from "./components/Index";
-import Music from "./components/Music";
-import Calendar from "./components/Music/Calendar";
-import Transcriptions from "./components/Music/Transcriptions";
-import Audio from "./components/Music/Audio";
-import Video from "./components/Music/Video";
+// import Music from "./components/Music";
+// import Calendar from "./components/Music/Calendar";
+// import Transcriptions from "./components/Music/Transcriptions";
+// import Audio from "./components/Music/Audio";
+// import Video from "./components/Music/Video";
 import Code from "./components/Code";
 import Projects from "./components/Code/Projects";
 import Skills from "./components/Code/Skills";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
-import DenverSkyline from "./components/DenverSkyline";
+// import DenverSkyline from "./components/DenverSkyline";
 // import { Navbar2 as Navbar } from "./components/Navbar2";
 import Contact from "./components/Contact";
 
 const App = () => {
   return (
     <div>
-      <header className="Navbar">
-        <Navbar />
-      </header>
-
-      <div className="App-header">
+      <Navbar />
+      <div className="App-body">
         <Routes>
           <Route path="/" element={<Index />} />
+          {/* <Route path="sphere" element={<SpherePage />} /> */}
           <Route path="about" element={<About />} />
-          <Route path="denverskyline" element={<DenverSkyline />} />
-          <Route path="music" element={<Music />}>
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostDetail />} />
+          {/* <Route path="denverskyline" element={<DenverSkyline />} /> */}
+          {/* <Route path="music" element={<Music />}>
             <Route path="calendar" element={<Calendar />} />
             <Route path="transcriptions" element={<Transcriptions />} />
             <Route path="audio" element={<Audio />} />
             <Route path="video" element={<Video />} />
-          </Route>
+          </Route> */}
           <Route path="code" element={<Code />}>
             <Route path="projects" element={<Projects />} />
             <Route path="skills" element={<Skills />} />

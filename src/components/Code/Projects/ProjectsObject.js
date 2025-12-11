@@ -1,5 +1,12 @@
 const Projects = [
   {
+    name: "Rosie",
+    description: "A website for my dog, Rosie to practice Gitlab GraphQL API",
+    skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
+    prod_link: "https://rosiethebatdog.netlify.app",
+    gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
+  },
+  {
     name: "Wordle-clone",
     description: "A clone of the popular word game, Wordle!",
     skills_used: ["JavaScript", "Node", "CSS", "HTML", "Heroku", "Github"],

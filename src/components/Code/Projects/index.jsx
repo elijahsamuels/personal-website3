@@ -1,8 +1,10 @@
 import { useId } from "react";
 import ProjectsObject from "./ProjectsObject";
 import "./Projects.css";
-import { SiGithub, SiNetlify, SiHeroku, SiApplemusic } from "react-icons/si";
+import { SiGitlab, SiGithub, SiNetlify, SiHeroku, SiApplemusic } from "react-icons/si";
 import { Parallax } from "react-scroll-parallax";
+
+document.title = `Elijah Samuels | Projects`;
 
 const Projects = () => {
   let id = useId();
@@ -35,7 +37,11 @@ const Projects = () => {
       const endScroll = startScroll + 300; // End position relative to start
 
       return (
-        <Parallax opacity={[0, 1]} startScroll={startScroll} endScroll={endScroll}>
+        <Parallax
+          opacity={[0, 2]}
+          startScroll={startScroll}
+          endScroll={endScroll}
+          translateY={["0px", `-${window.innerHeight / 4}px`]}>
           <div className="project" key={`${project.name}-${id}`}>
             <a href={project.prod_link} className={"prod-link"}>
               <div className="project-name">{project.name}</div>
@@ -52,7 +58,8 @@ const Projects = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="link social-media-icon github-link">
-                <SiGithub size="1em" />
+                {project.github_link && <SiGithub size="1em" />}
+                {project.gitlab_link && <SiGitlab size="1em" />}
               </a>
               <a
                 href={project.prod_link}

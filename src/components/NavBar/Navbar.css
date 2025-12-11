@@ -1,0 +1,141 @@
+/* Navbar.css */
+
+.Navbar {
+	position: -webkit-sticky;
+	position: sticky;
+
+	top: 8px;
+	left: 0;
+	right: 0;
+
+	z-index: 2;
+
+	background-color: transparent;
+	/* background-color: #282c34; */
+	font-size: calc(10px + 2vmin);
+	color: #ffffff;
+	border-radius: 10px 10px 0 0;
+
+	padding: 0.5em;
+}
+
+.Navbar-header {
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	z-index: 1;
+}
+
+.Navbar-controls {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+}
+
+.Navbar-links-container {
+	right: 0;
+	width: 200px;
+
+	display: none;
+	flex-direction: column;
+	/* background-color: #282c34; */
+	padding-bottom: 10px;
+
+	position: absolute;
+	top: 100%;
+
+	z-index: 11;
+}
+
+.Navbar.open .Navbar-links-container {
+	display: flex;
+}
+
+.nav-link-item {
+	text-decoration: none;
+	color: #ffffff;
+	font-weight: 500;
+	padding: 10px 1em;
+	font-size: 1em;
+	transition: background-color 0.25s ease-in-out;
+	text-align: right;
+}
+
+.nav-link-item:hover {
+	transition: 250ms ease-in-out;
+	color: #ffffffaa;
+  transform: scale(1.2);
+}
+
+.nav-link-item.active {
+	/* background-color: #4f4f4f; */
+}
+
+.hamburger-icon {
+	width: 30px;
+	height: 24px;
+	position: relative;
+	cursor: pointer;
+	z-index: 999;
+	flex-shrink: 0;
+	margin-left: 15px;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after,
+.middle-bar {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 100%;
+	background-color: #ffffff;
+	border-radius: 3px;
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	position: absolute;
+	left: 0;
+}
+
+.hamburger-icon::before {
+	top: 0;
+}
+
+.hamburger-icon::after {
+	bottom: 0;
+}
+
+.middle-bar {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.hamburger-icon.open::before {
+	top: 10.5px;
+	transform: rotate(45deg);
+}
+
+.hamburger-icon.open::after {
+	bottom: 10.5px;
+	transform: rotate(-45deg);
+}
+
+.hamburger-icon.open>.middle-bar {
+	opacity: 0;
+	transform: scaleX(0);
+}
+
+.logo {
+	max-inline-size: calc(50px);
+}
+
+.link {
+	/* text-decoration: none;
+	color: #ffffff;
+	transition: 250ms ease-in-out; */
+}
+
+.link:hover {
+	/* transition: 250ms ease-in-out;
+	color: #ffffffaa; */
+}

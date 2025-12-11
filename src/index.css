@@ -1,17 +1,70 @@
-body {
+/* index.css */
+
+/* ===================================================
+   BASE LAYOUT & TYPOGRAPHY (Unified)
+   =================================================== */
+
+:root {
+  --font-stack: Monaco, Menlo, 'Courier New', monospace;
+  --color-bg-page: #1a1e24;      /* Deep background */
+  --color-bg-code: #282c34;      /* Code block background (kept slightly lighter) */
+  --color-text-main: #e5e5e5;    /* Light text */
+  --color-text-subtle: #a0a0a0;  /* Subtle gray for metadata */
+  --color-accent-link: #79a6ff;  /* Professional blue for links */
+  --color-border-subtle: #4f4f4f; /* Dark, subtle border */
+  --color-accent-quote: #00aaff; /* Border for blockquotes */
+}
+
+html, body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-	background-color: #282c34;
+  padding: 0;
+  overflow-x: hidden; /* <- prevent horizontal scroll when elements are translated */
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	font-family: Monaco, Menlo, 'Courier New', monospace;
+  margin: 0px;
+  display: flex; 
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
 
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+/* button:hover {
+  border-color: #646cff;
+} */
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

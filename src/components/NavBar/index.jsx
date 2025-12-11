@@ -1,49 +1,55 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
-import useWindowSize from "../../hooks/useWindowSize";
-import { VscMenu } from "react-icons/vsc";
-
-const handleMiniNavbarClick = () => {
-  let navbar = document.getElementsByClassName("Navbar");
-  return navbar.createElement("<div>hello</div>");
-};
+import "./Navbar.css";
 
 const Navbar = () => {
-  const size = useWindowSize();
+  const [isOpen, setIsOpen] = useState(false);
 
-  if (size.width > 501) {
-    return (
-      <nav className="Navbar">
-        <span className="Navbar-item-right">
-          <NavLink to="/" className="link">
-            <img src={logo} alt="logo" className="logo" />
-          </NavLink>
-          <NavLink to="/about" className="nav-link">
-            About
-          </NavLink>
-          {/* <NavLink to="/code" className="nav-link">
-            Code
-          </NavLink> */}
-          {/* <NavLink to="/music" className="nav-link">
-            Music
-          </NavLink> */}
-          {/* <NavLink to="/contact" className="nav-link">
-            Contact
-          </NavLink> */}
-        </span>
-      </nav>
-    );
-  } else {
-    return (
-      <nav className="Navbar Navbar-mini">
+  const handleMenuClick = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const menuIconClasses = `hamburger-icon ${isOpen ? "open" : ""}`;
+
+  const Hamburger = (
+    <div className={menuIconClasses} onClick={handleMenuClick}>
+      <span className="middle-bar" />
+    </div>
+  );
+
+  const MainLinks = (
+    <>
+      <NavLink to="/" className="nav-link-item" onClick={handleMenuClick}>
+        Home
+      </NavLink>
+      <NavLink to="/blog" className="nav-link-item" onClick={handleMenuClick}>
+        Blog
+      </NavLink>
+      {/* <NavLink to="/projects" className="nav-link-item" onClick={handleMenuClick}>
+        Projects
+      </NavLink> */}
+      {/* <NavLink to="/about" className="nav-link-item" onClick={handleMenuClick}>
+        About
+      </NavLink> */}
+      <NavLink to="/contact" className="nav-link-item" onClick={handleMenuClick}>
+        Contact
+      </NavLink>
+    </>
+  );
+
+  return (
+    <nav className={`Navbar ${isOpen ? "open" : ""}`}>
+      <span className="Navbar-header">
         <NavLink to="/" className="link">
           <img src={logo} alt="logo" className="logo" />
         </NavLink>
+        {Hamburger}
+      </span>
 
-        <VscMenu className="mini-menu" onClick={handleMiniNavbarClick} />
-      </nav>
-    );
-  }
+      <div className="Navbar-links-container">{MainLinks}</div>
+    </nav>
+  );
 };
 
 export default Navbar;

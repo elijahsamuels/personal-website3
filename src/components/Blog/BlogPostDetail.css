@@ -1,0 +1,141 @@
+@import 'rehype-callouts/theme/github';
+
+/* ===================================================
+   BASE LAYOUT & TYPOGRAPHY (Unified)
+   =================================================== */
+
+:root {
+	--font-stack: Monaco, Menlo, 'Courier New', monospace;
+	--color-bg-page: #1a1e24;
+	--color-bg-code: #282c34;
+	--color-text-main: #e5e5e5;
+	--color-text-subtle: #a0a0a0;
+	--color-accent-link: #79a6ff;
+	--color-border-subtle: #4f4f4f;
+	--color-accent-quote: #00aaff;
+}
+
+.callout {
+	width: auto !important;
+	/* max-width: 100% !important; */
+}
+
+.blog-detail-container {
+	padding: 0 1rem;
+}
+
+.blog-detail-container p {
+	border-color: red !important;
+	border-width: 1px !important;
+	word-wrap: break-word;
+}
+
+.blog-detail-container li {
+	margin-bottom: 1.5em;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.blog-detail-container article {
+	/* margin: 10px; */
+	line-height: 1.75;
+}
+
+/* ===================================================
+   HEADER & METADATA STYLES
+   =================================================== */
+
+.blog-detail-container h1,
+.blog-detail-h1 {
+	color: var(--color-text-main);
+}
+
+.blog-date {
+	font-size: 0.67em;
+	color: var(--color-text-subtle);
+	text-align:center
+}
+
+.post-separator {
+	border: none;
+	border-top: 1px solid var(--color-border-subtle);
+}
+
+/* ===================================================
+   MARKDOWN ELEMENTS
+   =================================================== */
+
+.blog-detail-container h2 {
+	font-size: 2em;
+	font-weight: 600;
+	color: var(--color-text-main);
+}
+
+.blog-detail-container h3 {
+	font-size: 1.6em;
+	font-weight: 600;
+	color: var(--color-text-main);
+}
+
+.blog-detail-container p {}
+
+.blog-detail-container a {
+	color: var(--color-accent-link);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.blog-detail-container a:hover {
+	color: var(--color-accent-link);
+	text-decoration: underline;
+}
+
+.blog-detail-container ul,
+.blog-detail-container ol {
+	/* margin: 1.5rem 0 1.5rem 1.5rem; */
+	/* padding-left: 1.5rem; */
+}
+
+.blog-detail-container blockquote {
+	border-left: 5px solid var(--color-accent-quote);
+	background-color: #242930;
+	font-style: italic;
+	color: var(--color-text-subtle);
+	border-radius: 4px;
+}
+
+.blog-detail-title {
+	margin-top: 5vh;
+	padding: 2rem;
+
+}
+
+
+
+/* ===================================================
+   CODE BLOCK STYLES 
+   =================================================== */
+
+pre {
+	tab-size: 2;
+	background-color: var(--color-bg-code);
+
+	overflow-x: auto;
+	border-radius: 8px;
+
+	font-size: 0.7em;
+	line-height: 1.5;
+	font-family: var(--font-stack);
+	color: var(--color-text-main);
+
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+:not(pre)>code {
+	background-color: rgba(30, 30, 30, 0.75);
+	color: var(--color-code-property);
+	font-size: 0.9em;
+	white-space: nowrap;
+}

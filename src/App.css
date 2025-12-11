@@ -1,3 +1,5 @@
+/* App.css */
+
 h1,
 h2,
 h3,
@@ -7,80 +9,18 @@ h6 {
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-body {
+	background-color: #282c34;
+	border-radius: 10px 10px 0px 0px;
+  min-height: 0vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #ffffff;
-}
-
-.Navbar {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  /* background-color: #282c34; */
-  /* padding: 0.5em; */
-  font-size: calc(10px + 2vmin);
-  color: #ffffff;
-  z-index: 2;
-}
-
-.Navbar-mini {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  /* background-color: #282c34; */
-  /* padding: 0.5em; */
-  font-size: calc(10px + 2vmin);
-  color: #ffffff;
-  z-index: 2;
-}
-
-.Navbar-mini:hover {
-  cursor: pointer;
-}
-
-.Navbar-item-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.Navbar-item-left {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.link {
-  text-decoration: none;
-  color: #ffffff;
-  transition: 250ms ease-in-out;
-}
-
-.nav-link {
-  padding: 0.25em;
-  right: 0px;
-  text-decoration: none;
-  color: #ffffff;
-  transition: 250ms ease-in-out;
-}
-.nav-link:hover {
-  /* color: #dedede; */
-  /* background-color: #4f4f4f; */
-
-  background-color: #dedede;
-  color: #282c34;
-  border-radius: 5px;
-}
-
-.nav-link.active {
-  transition: 250ms ease-in-out;
-  background-color: #ffffff;
-  color: #282c34;
-  border-radius: 5px;
+	z-index: 1;
+	margin-top: -65px;
 }
 
 .social-media-icon {
@@ -103,11 +43,13 @@ h6 {
   top: 0;
 }
 
-/* .page {
-  padding: 1.5em;
-  z-index: 1;
-} */
-
 .date {
   color: #ff0000;
+}
+
+/* header {
+	border-radius: 10px 10px 0px 0px;
+} */
+footer {
+	border-radius: 0px 0px 10px 10px;
 }
