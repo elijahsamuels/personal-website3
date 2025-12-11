@@ -11,6 +11,7 @@ import { blogPosts } from "./blogData";
 import "highlight.js/styles/atom-one-dark.css";
 import "./BlogPostDetail.css";
 
+
 const customComponents = {
   h1: ({ children }) => <h1 className="blog-detail-h1">{children}</h1>,
   h2: ({ children }) => <h2 className="blog-detail-h2">{children}</h2>,
