@@ -20,6 +20,15 @@ const customComponents = {
   code: ({ className, children }) => {
     return <code className={className}>{children}</code>;
   },
+	img: (props) => (
+    <div className="markdown-img-wrapper">
+      <img
+        src={props.src}
+        alt={props.alt}
+        style={{ display: 'block', margin: '0 auto', maxWidth: '75%' }}
+      />
+    </div>
+  ),
 };
 
 const BlogPostDetail = () => {
