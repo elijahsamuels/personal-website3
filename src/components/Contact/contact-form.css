@@ -1,0 +1,94 @@
+/* ===========================================
+   CONTACT FORM — Dark theme aligned to site
+   =========================================== */
+
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.contact-form {
+  width: 420px;
+  padding: 32px;
+  background-color: var(--color-bg-code);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: var(--color-text-main);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form h2 {
+  color: var(--color-text-main);
+  margin: 0 0 8px 0;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Inputs */
+.contact-form input,
+.contact-form textarea {
+  background-color: #1f2329;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 0.75em 1em;
+  font-family: var(--font-stack);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-accent-link);
+}
+
+/* Button */
+.contact-form button {
+  background-color: #1a1a1a;
+  color: var(--color-text-main);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-subtle);
+  padding: 0.75em 1.2em;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.15s ease-out;
+}
+
+.contact-form button:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.02);
+}
+
+.contact-form button:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+}
+
+/* Status Messages */
+.success {
+  color: #79ff9f;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+}
