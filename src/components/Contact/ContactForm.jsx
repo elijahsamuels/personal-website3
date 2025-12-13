@@ -21,10 +21,7 @@ const ContactForm = () => {
 
   const encode = (data) =>
     Object.keys(data)
-      .map(
-        (key) =>
-          encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
 
   const handleSubmit = async (e) => {
@@ -48,7 +45,7 @@ const ContactForm = () => {
         throw new Error("Submission failed");
       }
     } catch (error) {
-			console.log('error', error)
+      console.log("error", error);
       setStatus({
         submitting: false,
         success: false,
@@ -59,55 +56,45 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper">
-      <form
-        className="contact-form"
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        onSubmit={handleSubmit}
-      >
+      <form name="contact" netlify>
+        <p>
+          <label>
+            Name <input type="text" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Email <input type="email" name="email" />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+
+      <form className="contact-form" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="contact" />
 
         <label>
           Name
-          <input
-            type="text"
-            name="name"
-            required
-            value={form.name}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" required value={form.name} onChange={handleChange} />
         </label>
 
         <label>
           Email
-          <input
-            type="email"
-            name="email"
-            required
-            value={form.email}
-            onChange={handleChange}
-          />
+          <input type="email" name="email" required value={form.email} onChange={handleChange} />
         </label>
 
         <label>
           Message
-          <textarea
-            name="message"
-            rows={5}
-            required
-            value={form.message}
-            onChange={handleChange}
-          />
+          <textarea name="message" rows={5} required value={form.message} onChange={handleChange} />
         </label>
 
         <button type="submit" disabled={status.submitting}>
           {status.submitting ? "Sending..." : "Send Message"}
         </button>
 
-        {status.success && (
-          <p className="success">Your message has been sent successfully.</p>
-        )}
+        {status.success && <p className="success">Your message has been sent successfully.</p>}
         {status.error && <p className="error">{status.error}</p>}
       </form>
     </div>
