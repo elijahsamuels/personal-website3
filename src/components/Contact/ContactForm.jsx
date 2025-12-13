@@ -69,11 +69,11 @@ const ContactForm = () => {
       .catch((error) => alert(error));
   };
 
-  document.querySelector("form").addEventListener("submit", handleSubmit);
+  // document.querySelector("form").addEventListener("submit", handleSubmit);
 
   return (
     <div className="contact-form-wrapper">
-      <form name="contact" netlify>
+      {/* <form name="contact" netlify>
         <p>
           <label>
             Name <input type="text" name="name" />
@@ -89,11 +89,10 @@ const ContactForm = () => {
             Send
           </button>
         </p>
-      </form>
+      </form> */}
+      <input key={'hidden-form'} type="hidden" name="contact" value="contact" />
 
       <form className="contact-form" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
-        <input type="hidden" name="form-name" value="contact" />
-
         <label>
           Name
           <input type="text" name="name" required value={form.name} onChange={handleChange} />
