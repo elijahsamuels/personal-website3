@@ -55,7 +55,20 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper">
-      <form className="contact-form" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} action="/thanks/">
+      <form name="contact" method="POST" data-netlify="true" hidden>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form>
+
+      <form
+        className="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        onSubmit={handleSubmit}
+        action="/thanks/">
         <input type="hidden" name="form-name" value="contact" />
 
         <label>
