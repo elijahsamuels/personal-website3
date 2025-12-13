@@ -20,23 +20,47 @@ const ContactForm = () => {
   };
 
   // Helper function to encode form data for Netlify
-  // const encode = (data) => {
-  //   return Object.keys(data)
-  //     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-  //     .join("&");
-  // };
+  const encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, success: false, error: null });
+
+    const formAction = e.target.action;
+
+    try {
+      const res = await fetch(formAction, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...form,
+        }),
+      });
+
+      if (res.ok || res.status === 204) {
+        setStatus({ submitting: false, success: true, error: null });
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Netlify form submission failed unexpectedly.");
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+};
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   setStatus({ submitting: true, success: false, error: null });
 
   //   try {
-  //     // 🚨 CRITICAL CHANGE: Submit to the root path ("/") with URL-encoded data.
-  //     // Netlify's deploy bot will intercept this POST request.
   //     const res = await fetch("/", {
   //       method: "POST",
   //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //       // Use the encode helper function to send the data
   //       body: encode({
   //           "form-name": "contact", // Netlify requires this hidden field/property
   //           ...form
@@ -53,21 +77,35 @@ const ContactForm = () => {
   //   }
   // };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
 
-    const myForm = event.target;
-    const formData = new FormData(myForm);
+  //   const myForm = event.target;
+  //   const formData = new FormData(myForm);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      // .then(() => navigate("/thank-you/"))
-      .then(() => console.log("message POSTED"))
-      .catch((error) => alert(error));
-  };
+  //   //   fetch("/", {
+  //   //     method: "POST",
+  //   //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //   //     body: new URLSearchParams(formData).toString(),
+  //   //   })
+  //   //     // .then(() => navigate("/thank-you/"))
+  //   //     .then(() => console.log("message POSTED"))
+  //   //     .catch((error) => alert(error));
+
+  //   const res = await fetch(e.target.action || window.location.href, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({
+  //       "form-name": "contact",
+  //       ...form,
+  //     }),
+  //   });
+
+  //   // The key: check for success based on the status code (200, 204, or 30x)
+  //   if (res.status >= 400) {
+  //     throw new Error(`Failed to submit. Status: ${res.status}`);
+  //   }
+  // };
 
   return (
     <div className="contact-form-wrapper">
