@@ -20,60 +20,64 @@ const ContactForm = () => {
   };
 
   // Helper function to encode form data for Netlify
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
+  // const encode = (data) => {
+  //   return Object.keys(data)
+  //     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+  //     .join("&");
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({ submitting: true, success: false, error: null });
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus({ submitting: true, success: false, error: null });
 
-    try {
-      // 🚨 CRITICAL CHANGE: Submit to the root path ("/") with URL-encoded data.
-      // Netlify's deploy bot will intercept this POST request.
-      const res = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        // Use the encode helper function to send the data
-        body: encode({ 
-            "form-name": "contact", // Netlify requires this hidden field/property
-            ...form 
-        }),
-      });
+  //   try {
+  //     // 🚨 CRITICAL CHANGE: Submit to the root path ("/") with URL-encoded data.
+  //     // Netlify's deploy bot will intercept this POST request.
+  //     const res = await fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       // Use the encode helper function to send the data
+  //       body: encode({
+  //           "form-name": "contact", // Netlify requires this hidden field/property
+  //           ...form
+  //       }),
+  //     });
 
-      if (!res.ok) throw new Error("Failed to submit to Netlify.");
+  //     if (!res.ok) throw new Error("Failed to submit to Netlify.");
 
-      setStatus({ submitting: false, success: true, error: null });
-      setForm({ name: "", email: "", message: "" });
-    } catch (error) {
-			console.log('error', error)
-      setStatus({ submitting: false, success: false, error: "Submission error. Check your Netlify form settings." });
-    }
+  //     setStatus({ submitting: false, success: true, error: null });
+  //     setForm({ name: "", email: "", message: "" });
+  //   } catch (error) {
+  // 		console.log('error', error)
+  //     setStatus({ submitting: false, success: false, error: "Submission error. Check your Netlify form settings." });
+  //   }
+  // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      // .then(() => navigate("/thank-you/"))
+      .then(() => console.log("message POSTED"))
+      .catch((error) => alert(error));
   };
 
   return (
     <div className="contact-form-wrapper">
-      {/* 🚨 CRITICAL CHANGE: Added Netlify attributes and on-page form-name */}
-      <form 
-        className="contact-form" 
-        name="contact" 
-        method="POST" 
-        data-netlify="true" // For client-side JS submission
-        onSubmit={handleSubmit}
-      >
-        {/* 🚨 CRITICAL CHANGE: The form-name field is required for Netlify to recognize the submission */}
+      <form className="contact-form" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="contact" />
 
         <label>
           Name
           <input type="text" name="name" required value={form.name} onChange={handleChange} />
         </label>
-        
-        {/* ... other fields remain the same */}
 
         <label>
           Email
