@@ -18,6 +18,7 @@ const ContactForm = () => {
 
     const myForm = event.target;
     const formData = new FormData(myForm);
+		console.log('formData:', formData);
 
     fetch("/", {
       method: "POST",
@@ -36,7 +37,8 @@ const ContactForm = () => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}>
+        // onSubmit={handleSubmit}
+				>
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
 
