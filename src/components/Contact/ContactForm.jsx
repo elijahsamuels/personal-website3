@@ -19,40 +19,57 @@ const ContactForm = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const encode = (data) =>
-    Object.keys(data)
-      .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
+  // const encode = (data) =>
+  //   Object.keys(data)
+  //     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+  //     .join("&");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({ submitting: true, success: false, error: null });
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus({ submitting: true, success: false, error: null });
 
-    try {
-      const res = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...form,
-        }),
-      });
+  //   try {
+  //     const res = await fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       body: encode({
+  //         "form-name": "contact",
+  //         ...form,
+  //       }),
+  //     });
 
-      if (res.ok) {
-        setStatus({ submitting: false, success: true, error: null });
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        throw new Error("Submission failed");
-      }
-    } catch (error) {
-      console.log("error", error);
-      setStatus({
-        submitting: false,
-        success: false,
-        error: "Something went wrong. Please try again.",
-      });
-    }
+  //     if (res.ok) {
+  //       setStatus({ submitting: false, success: true, error: null });
+  //       setForm({ name: "", email: "", message: "" });
+  //     } else {
+  //       throw new Error("Submission failed");
+  //     }
+  //   } catch (error) {
+  //     console.log("error", error);
+  //     setStatus({
+  //       submitting: false,
+  //       success: false,
+  //       error: "Something went wrong. Please try again.",
+  //     });
+  //   }
+  // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   };
+
+  document.querySelector("form").addEventListener("submit", handleSubmit);
 
   return (
     <div className="contact-form-wrapper">
@@ -68,7 +85,9 @@ const ContactForm = () => {
           </label>
         </p>
         <p>
-          <button type="submit">Send</button>
+          <button type="submit" method="POST">
+            Send
+          </button>
         </p>
       </form>
 
