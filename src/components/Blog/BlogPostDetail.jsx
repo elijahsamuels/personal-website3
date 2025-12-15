@@ -8,7 +8,10 @@ import rehypeSlug from "rehype-slug";
 import rehypeCallouts from "rehype-callouts";
 import { blogPosts } from "./blogData";
 
-import "highlight.js/styles/atom-one-dark.css";
+// import "highlight.js/styles/atom-one-dark.css";
+// import "highlight.js/styles/github-dark.css";
+// import "./github-dark.css";
+import "./atom-one-dark.css";
 import "./BlogPostDetail.css";
 
 
@@ -43,7 +46,6 @@ const BlogPostDetail = () => {
       document.title = `Elijah Samuels | ${post.title}`;
     }
   }, [post]);
-  console.log("post:", post);
 
   if (!post) {
     return <Navigate to="/404" replace />;
@@ -59,7 +61,6 @@ const BlogPostDetail = () => {
 
   return (
     <div className="blog-detail-container">
-      {/* <article> */}
         <h4 className="blog-detail-title">{post.title}</h4>
 
         <p className="blog-date">
@@ -74,7 +75,6 @@ const BlogPostDetail = () => {
           rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
           components={customComponents}
         />
-      {/* </article> */}
     </div>
   );
 };
