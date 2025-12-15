@@ -1,0 +1,25 @@
+.scroll-indicator {
+  position: fixed; /* Keep it fixed relative to the viewport */
+  bottom: 20px;    /* Position it 20px from the bottom */
+  left: 50%;       /* Center horizontally */
+  transform: translateX(-50%); /* Fine-tune centering */
+  color: #ffffff; /* Use an accent color */
+  z-index: 1000;   /* Ensure it's above all other content */
+  pointer-events: none; /* Ignore mouse events so it doesn't block clicks */
+}
+
+.scroll-arrow {
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}

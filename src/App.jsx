@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import SpherePage from "./components/SpherePage";
 import About from "./components/About";
 import Blog from "./components/Blog";
+import ScrollIndicator from "./components/ScrollIndicator";
 import BlogPostDetail from "./components/Blog/BlogPostDetail";
 import Index from "./components/Index";
 // import Music from "./components/Music";
@@ -46,6 +47,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+			<ScrollIndicator />
     </div>
   );
 };
