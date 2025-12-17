@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Greeting from "../staticComponents/Greeting.jsx";
 import About from "../components/About";
 import Projects from "../components/Code/Projects";
+import ScrollIndicator from "./ScrollIndicator";
 import './index.css'
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
 
   return (
     <>
+      <ScrollIndicator />
       {showToast && (
         <div className="toast success-toast">
           Message sent successfully 🎉
