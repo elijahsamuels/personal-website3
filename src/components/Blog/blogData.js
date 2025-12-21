@@ -46,6 +46,7 @@ export const blogPosts = Object.keys(modules).map((path) => {
   return {
     slug: slug,
     title: data.title || "Untitled Post",
+    subtitle: data.subtitle || null,
     date: data.date,
     author: data.author,
     content: content,

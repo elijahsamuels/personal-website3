@@ -14,7 +14,6 @@ import { blogPosts } from "./blogData";
 import "./atom-one-dark.css";
 import "./BlogPostDetail.css";
 
-
 const customComponents = {
   h1: ({ children }) => <h1 className="blog-detail-h1">{children}</h1>,
   h2: ({ children }) => <h2 className="blog-detail-h2">{children}</h2>,
@@ -62,6 +61,7 @@ const BlogPostDetail = () => {
   return (
     <div className="blog-detail-container">
         <h4 className="blog-detail-title">{post.title}</h4>
+        <h6 className="blog-detail-subtitle">{post.subtitle}</h6>
 
         <p className="blog-date">
           {formattedDate} by {post.author}

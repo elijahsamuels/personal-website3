@@ -53,7 +53,7 @@
 .blog-date {
 	font-size: 0.67em;
 	color: var(--color-text-subtle);
-	text-align:center
+	text-align: center
 }
 
 .post-separator {
@@ -105,12 +105,16 @@
 }
 
 .blog-detail-title {
-	margin-top: 5vh;
-	padding: 2rem;
-
+	margin-top: 5vh 0 0 0;
+	padding: 2rem 0 0 0;
+	color: var(--color-text-main)
 }
 
-
+.blog-detail-subtitle {
+	/* margin-top: 5vh; */
+	/* padding: 2rem; */
+	color: var(--color-text-main)
+}
 
 /* ===================================================
    CODE BLOCK STYLES 
