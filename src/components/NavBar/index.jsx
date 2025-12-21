@@ -32,6 +32,9 @@ const Navbar = () => {
       {/* <NavLink to="/about" className="nav-link-item" onClick={handleMenuClick}>
         About
       </NavLink> */}
+      <NavLink to="/resume" className="nav-link-item" onClick={handleMenuClick}>
+        Resume
+      </NavLink>
       <NavLink to="/contact" className="nav-link-item" onClick={handleMenuClick}>
         Contact
       </NavLink>
