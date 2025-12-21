@@ -4,8 +4,6 @@ import { SiGitlab, SiGithub, SiNetlify, SiHeroku, SiApplemusic } from "react-ico
 import { FaAws } from "react-icons/fa";
 import { Parallax } from "react-scroll-parallax";
 
-document.title = `Elijah Samuels | Projects`;
-
 const prodLinkReturn = (linkProps) => {
   let size = "1em";
   if (linkProps.includes("netlify")) {
@@ -22,7 +20,7 @@ const prodLinkReturn = (linkProps) => {
 const ProjectsList = () => {
   return ProjectsObject.map((project, index) => {
     const startScroll = index * 100;
-    const endScroll = startScroll + 300;
+    const endScroll = startScroll + 100;
     const translateYValue = typeof window !== "undefined" ? [`0px`, `-${window.innerHeight / 4}px`] : [`0px`, `-100px`];
 
     return (
@@ -63,9 +61,7 @@ const ProjectsList = () => {
 
 const Projects = () => {
   return (
-    <div>
       <ProjectsList />
-    </div>
   );
 };
 

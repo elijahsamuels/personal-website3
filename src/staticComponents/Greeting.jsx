@@ -42,7 +42,7 @@ const Greeting = () => {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+		const interval = setInterval(() => {
       setFade(false);
       setTimeout(() => {
         setGreeting(hello[Math.floor(Math.random() * hello.length)]);
