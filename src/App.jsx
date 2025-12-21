@@ -20,6 +20,7 @@ import Navbar from "./components/NavBar";
 // import DenverSkyline from "./components/DenverSkyline";
 // import { Navbar2 as Navbar } from "./components/Navbar2";
 import Contact from "./components/Contact";
+import Resume from "./components/Resume";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="projects" element={<Projects />} />
             <Route path="skills" element={<Skills />} />
           </Route>
+          <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
       </div>
