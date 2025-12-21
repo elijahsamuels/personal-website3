@@ -5,11 +5,13 @@
   overflow-x: hidden;
   margin-top: 0;
   height: 100vh;
+  /* height: 100dvh; */
 }
 
 .parallax .group {
   position: relative;
 	height: 100vh;
+	/* height: 100dvh; */
   transform-style: preserve-3d;
 }
 

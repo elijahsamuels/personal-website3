@@ -27,10 +27,6 @@ h6 {
   padding: 0.25em;
 }
 
-/* .social-media-icon:hover {
-  transform: scale(2);
-} */
-
 .link:hover {
   transition: 250ms ease-in-out;
   color: #ffffffaa;
@@ -47,9 +43,6 @@ h6 {
   color: #ff0000;
 }
 
-/* header {
-	border-radius: 10px 10px 0px 0px;
-} */
 footer {
 	border-radius: 0px 0px 10px 10px;
 }
