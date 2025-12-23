@@ -35,22 +35,24 @@
 }
 
 .Navbar-links-container {
-	right: 0;
-	width: 200px;
-
-	display: none;
-	flex-direction: column;
-	/* background-color: #282c34; */
-	padding-bottom: 10px;
-
-	position: absolute;
-	top: 100%;
-
-	z-index: 11;
+  right: 0;
+  width: 200px;
+  display: flex; /* Keep it as flex always */
+  flex-direction: column;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 100%;
+  z-index: 11;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out, visibility 0.125s;
 }
 
 .Navbar.open .Navbar-links-container {
-	display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .nav-link-item {
@@ -61,12 +63,14 @@
 	font-size: 1em;
 	transition: background-color 0.25s ease-in-out;
 	text-align: right;
+	transform-origin: right;
+	transition: 250ms ease-in-out;
 }
 
 .nav-link-item:hover {
 	transition: 250ms ease-in-out;
 	color: #ffffffaa;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .nav-link-item.active {
@@ -81,6 +85,8 @@
 	z-index: 999;
 	flex-shrink: 0;
 	margin-left: 15px;
+	transition: 125ms ease-in-out;
+
 }
 
 .hamburger-icon::before,
@@ -95,34 +101,43 @@
 	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	position: absolute;
 	left: 0;
+	transition: 125ms ease-in-out;
+
 }
 
 .hamburger-icon::before {
 	top: 0;
+	transition: 125ms ease-in-out;
+
 }
 
 .hamburger-icon::after {
 	bottom: 0;
+	transition: 125ms ease-in-out;
 }
 
 .middle-bar {
 	top: 50%;
 	transform: translateY(-50%);
+	transition: 125ms ease-in-out;
 }
 
 .hamburger-icon.open::before {
 	top: 10.5px;
 	transform: rotate(45deg);
+	transition: 125ms ease-in-out;
 }
 
 .hamburger-icon.open::after {
 	bottom: 10.5px;
 	transform: rotate(-45deg);
+	transition: 125ms ease-in-out;
 }
 
 .hamburger-icon.open>.middle-bar {
 	opacity: 0;
 	transform: scaleX(0);
+	transition: 125ms ease-in-out;
 }
 
 .logo {
