@@ -10,7 +10,7 @@ document.title = `Elijah Samuels | Resume`;
 const awsBadge = {
   id: "82bbd038-e9d4-4d08-bed5-b1b6cd70b0da",
   host: "https://www.credly.com",
-  img: "../../../public/badges/awsCloudPractitioner.png",
+  img: "/public/badges/awsCloudPractitioner.png",
   title: "AWS Certified Cloud Practitioner",
   issuer: "Amazon Web Services Training and Certification",
   url: "https://www.credly.com/badges/82bbd038-e9d4-4d08-bed5-b1b6cd70b0da",
@@ -19,12 +19,12 @@ const awsBadge = {
 const phistStoryDefcon33 = {
   id: "",
   host: "https://forum.defcon.org/node/252999#post252999",
-  img: "../../../public/badges/phistStoryDefcon33.png",
+  img: "/public/badges/phistStoryDefcon33.png",
   title: "Phish Stories - The Wizard (2025)",
   issuer: "DEFCON 33",
   url: "https://forum.defcon.org/node/252999#post252999",
 };
-const resume = "../../../public/ElijahSamuelsSoftwareEngineerResume.pdf";
+const resume = "/public/ElijahSamuelsSoftwareEngineerResume.pdf";
 
 const Resume = () => {
   useEffect(() => {
