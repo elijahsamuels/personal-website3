@@ -1,0 +1,30 @@
+@startuml osi_model
+title OSI Model\n(Open Systems Interconnection)
+
+skinparam rectangle {
+  BackgroundColor<<Application>> Orange
+  BackgroundColor<<Presentation>> Yellow
+  BackgroundColor<<Session>> LightGreen
+  BackgroundColor<<Transport>> LightBlue
+  BackgroundColor<<Network>> Cyan
+  BackgroundColor<<DataLink>> Plum
+  BackgroundColor<<Physical>> LightGray
+  BorderColor Black
+}
+
+rectangle "Layer 7: Application\nHTTP, FTP, React, NodeJS" as App <<Application>>
+rectangle "Layer 6: Presentation\nTLS/HTTPS, JSON serialization" as Pres <<Presentation>>
+rectangle "Layer 5: Session\nUser session management, cookies" as Sess <<Session>>
+rectangle "Layer 4: Transport\nTCP, UDP, Port numbers" as Trans <<Transport>>
+rectangle "Layer 3: Network\nIP Addressing, Routing, Traceroute" as Net <<Network>>
+rectangle "Layer 2: Data Link\nMAC Addresses, SSID, Ethernet/Wi-Fi" as Datalink <<DataLink>>
+rectangle "Layer 1: Physical\nCables, RF signals, Routers" as Phys <<Physical>>
+
+Phys --> Datalink
+Datalink --> Net
+Net --> Trans
+Trans --> Sess
+Sess --> Pres
+Pres --> App
+
+@enduml

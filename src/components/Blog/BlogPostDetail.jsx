@@ -8,8 +8,6 @@ import rehypeSlug from "rehype-slug";
 import rehypeCallouts from "rehype-callouts";
 import { blogPosts } from "./blogData";
 
-// import "highlight.js/styles/atom-one-dark.css";
-// import "highlight.js/styles/github-dark.css";
 // import "./github-dark.css";
 import "./atom-one-dark.css";
 import "./BlogPostDetail.css";

@@ -1,0 +1,348 @@
+@startuml home_network_public
+hide stereotype
+' !define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+' !include osaPuml/Common.puml
+' !include osaPuml/User/all.puml
+' !include osaPuml/Hardware/all.puml
+' !include osaPuml/Misc/all.puml
+' !include osaPuml/Server/all.puml
+' !include osaPuml/Site/all.puml
+
+' !include <tupadr3/common>
+' https://github.com/Roemer/plantuml-office
+!define officeUml https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014
+!include officeUml/Servers/database_server.puml
+!include officeUml/Servers/application_server.puml
+!include officeUml/Concepts/firewall_orange.puml
+!include officeUml/Concepts/globe_internet.puml
+!include officeUml/Clouds/cloud_disaster.puml
+!include officeUml/Devices/data_jack.puml
+!include officeUml/Devices/modem.puml
+!include officeUml/Devices/router.puml
+!include officeUml/Devices/switch.puml
+!include officeUml/Devices/device_webcam_hd.puml
+!include officeUml/Devices/device_tv.puml
+!include officeUml/Devices/device_printer.puml
+!include officeUml/Devices/cell_phone_iphone_stand_alone.puml
+!include officeUml/Devices/device_laptop.puml
+!include officeUml/Devices/device_tablet_ipad.puml
+!include officeUml/Databases/database_server.puml
+
+' skinparam nodesep 5
+
+' how to make a link . SPACES are required!
+'[[www.google.com {tooltip} link text]]
+'[[http://192.168.1.xxx {tooltip} 192.168.1.xxx]]
+
+' TODO: create a list of ALL addresses in order to show what is and is not used
+
+<style>
+rectangle {
+	.internetRectangle {
+		FontColor #White
+		BackgroundColor #5a23b9/7c30ff
+	}
+}
+</style>
+
+
+' ### INTERNET/COMCAST ###
+rectangle "<$globe_internet>\nComcast" as internet <<internetRectangle>>
+
+' ### MODEM ###
+rectangle "<$modem> \nModem\n\nMotorola mb8600\n[[http://192.168.x.x{tooltip} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX\n12.34.56.78\n[[https://www.motorola.com/us/mb8600/p?srsltid=acb123{DOCSIS 3.1 with fallback to 32x8 DOCSIS 3.0\nOne open and 3 masked 10/100/1000 Gigabit Ethernet (GigE) LAN ports\nDownstream speeds up to 3.8 Gbps when supported by your cable service speed and a router that can bond Ethernet ports\nUp to 1 Gbps upstream speeds\nSupports IPv6 address\n} Motorola mb8600]]" as modem
+
+
+
+' ### ROUTERS ###
+rectangle "<$router> \nRouter\n\nAsus GT-BE98 Pro\n[[http://192.168.x.x {Asus GT-BE98 Pro} 192.168.x.x]]\nSSID - 2.4Ghz\nSSID51 - 5Ghz\nSSID52 - 5Ghz\nMA:CA:DD:RE:SS:XX" as router
+
+' ### NAS/STORAGE ###
+rectangle "<$database_server>\nNAS Synology 1918\nMA:CA:DD:RE:SS:XX" as synNas #LightGrey {
+	circle "Port 1 1Gb\n[[http://192.168.x.x {Port 1} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nasPort1
+  circle "Port 2 1Gb\n[[http://192.168.x.x {Port 2} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nasPort2
+  circle "Port 3 1Gb\n[[http://192.168.x.x {Port 3} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nasPort3
+  circle "Port 4 1Gb\n[[http://192.168.x.x {Port 4} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nasPort4
+  circle "Port 5 10Gb\n[[http://192.168.x.x {Port 5} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nasPort5
+	} 
+
+rectangle "Cat6 Patch Panel" as patchPanel {
+	circle "Port 1" as patchPanelport1
+	circle "Port 2" as patchPanelport2
+	circle "Port 3" as patchPanelport3
+	circle "Port 4" as patchPanelport4
+	circle "Port 5" as patchPanelport5
+	circle "Port 6" as patchPanelport6
+	circle "Port 7" as patchPanelport7
+	circle "Port 8" as patchPanelport8
+	circle "Port 9" as patchPanelport9
+	circle "Port 10" as patchPanelport10
+	circle "Port 11" as patchPanelport11
+	circle "Port 12" as patchPanelport12
+	circle "Port 13" as patchPanelport13
+	circle "Port 14" as patchPanelport14
+	circle "Port 15" as patchPanelport15
+	circle "Port 16" as patchPanelport16
+	circle "Port 17" as patchPanelport17
+	circle "Port 18" as patchPanelport18
+	circle "Port 19" as patchPanelport19
+	circle "Port 20" as patchPanelport20
+	circle "Port 21" as patchPanelport21
+	circle "Port 22" as patchPanelport22
+	circle "Port 23" as patchPanelport23
+	circle "Port 24" as patchPanelport24
+}
+
+' ### NETWORK SWITCHES ###
+rectangle "<$switch>\nNetwork Switch\nNetgear GS724Tv4\n24 ports\n[[http://192.168.x.x {Netgear GS724Tv4} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as switch1 {
+	circle "Port 1" as switch1port1
+  circle "Port 2" as switch1port2
+  circle "Port 3" as switch1port3
+  circle "Port 4" as switch1port4
+  circle "Port 5" as switch1port5
+  circle "Port 6" as switch1port6
+  circle "Port 7" as switch1port7
+  circle "Port 8" as switch1port8
+  circle "Port 9" as switch1port9
+  circle "Port 10" as switch1port10
+  circle "Port 11" as switch1port11
+  circle "Port 12" as switch1port12
+  circle "Port 13" as switch1port13
+  circle "Port 14" as switch1port14
+  circle "Port 15" as switch1port15
+  circle "Port 16" as switch1port16
+  circle "Port 17" as switch1port17
+  circle "Port 18" as switch1port18
+  circle "Port 19" as switch1port19
+  circle "Port 20" as switch1port20
+  circle "Port 21" as switch1port21
+  circle "Port 22" as switch1port22
+  circle "Port 23" as switch1port23
+  circle "Port 24" as switch1port24
+}
+
+rectangle "<$switch>\nNetwork PoE Switch\nNetgear GS510TP\n8 ports\n[[http://192.168.x.x {nNetgear GS510TP} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as poeSwitch1 #pink {
+	circle "Port 1" as poeSwitch1port1
+  circle "Port 2" as poeSwitch1port2
+  circle "Port 3" as poeSwitch1port3
+  circle "Port 4" as poeSwitch1port4
+  circle "Port 5" as poeSwitch1port5
+  circle "Port 6" as poeSwitch1port6
+  circle "Port 7" as poeSwitch1port7
+  circle "Port 8" as poeSwitch1port8
+}
+
+' TODO: [[http://192.168.1.xxx {Netgear GS108LP} 192.168.1.xxx]]
+rectangle "<$switch>\nNetwork PoE Switch\nNetgear GS108LP\n8 ports\n192.168.1.xxx\nMA:CA:DD:RE:SS:XX" as poeSwitch2 #pink {
+	circle "Port 1" as poeSwitch2port1
+  circle "Port 2" as poeSwitch2port2
+  circle "Port 3" as poeSwitch2port3
+  circle "Port 4" as poeSwitch2port4
+  circle "Port 5" as poeSwitch2port5
+  circle "Port 6" as poeSwitch2port6
+  circle "Port 7" as poeSwitch2port7
+  circle "Port 8" as poeSwitch2port8
+}
+rectangle "<$switch>\nPoE Injector\n\n1 port\nMA:CA:DD:RE:SS:XX" as poeInjector #pink {
+	circle "Port 1" as poeInjectorPort1
+}
+
+' ### CAMERAS ###
+together {
+	rectangle "<$device_webcam_hd>\nCamera\nReolink 511\nPoE\n[[http://192.168.x.x {SW Camera} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as camera1 #pink
+	rectangle "<$device_webcam_hd>\nCamera\nReolink 511\nPoE\n[[http://192.168.x.x {NW Camera} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as camera2 #pink
+	rectangle "<$device_webcam_hd>\nCamera\nReolink 511\nPoE\n[[http://192.168.x.x {NE Camera} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as camera3 #pink
+	rectangle "<$device_webcam_hd>\nCamera\nReolink Floodlight\nPoE\n[[http://192.168.x.x {SE Floodlight Camera} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as camera4 #pink
+	rectangle "<$device_webcam_hd>\nCamera\nReolink Doorbell\nPoE\n[[http://192.168.x.x {Doorbell Camera} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as camera5 #pink
+}
+rectangle "<$device_webcam_hd>\nCamera\nDog Camera 1\nDHCP\nMA:CA:DD:RE:SS:XX" as dogCamera1
+rectangle "<$device_webcam_hd>\nCamera\nDog Camera 2\nDHCP\nMA:CA:DD:RE:SS:XX" as dogCamera2
+
+' ### MISC HUBS ###
+rectangle "SmartThings Hub\n[[http://192.168.x.x {SmartThings Hub} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as smartthingshub
+rectangle "Apple TV (Basement)\n[[http://192.168.x.x {Apple TV (Basement)} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as appleTvBasement
+rectangle "Apple TV (Living Room)\n[[http://192.168.x.x {Apple TV (Living Room)} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as appleTvLivingRoom
+rectangle "MySmartBlinds Hub\n[[http://192.168.x.x {MySmartBlinds Hub} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as mySmartBlindsHub
+rectangle "Philips Hue Hub\n[[http://192.168.x.x {Philips Hue Hub} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as philipsHuesHub
+rectangle "Rachio\n[[http://192.168.x.x {Rachio} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rachio
+rectangle "Ecobee Thermostat\n[[http://192.168.x.x {Ecobee Thermostat} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as ecobeeThermostat
+' TODO: SET THE TV TO A STATIC ADDRESS AND UPDATE HERE
+rectangle "<$device_tv>\nSamsung SmartTV\nDHCP\nMA:CA:DD:RE:SS:XX" as samsungTv
+rectangle "Schlage Lock\n[[http://192.168.x.x {Schlage Lock} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as schlage
+
+' ### PRINTERS ###
+rectangle "<$device_printer>\nPrinter\nBrother MFC-L2750DW\n[[http://192.168.x.x {Brother MFC-L2750DW\nLogin: initpass} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as brotherPrinterWireless
+rectangle "<$device_printer>\nPrinter\nBrother MFC-L2750DW\n[[http://192.168.x.x {Brother MFC-L2750DW\nLogin: initpass} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as brotherPrinterEthernet
+rectangle "<$device_printer>\n3D Printer\nEnder3v1 via Rpi 5/Octoprint\n[[http://192.168.x.x {Ender3v1 via Rpi 5/Octoprint} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as ender3dPrinter
+
+rectangle "Sony PS5\n[[http://192.168.x.x {Sony PS5} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as sonyPs5
+rectangle "Nintendo Switch\n[[http://192.168.x.x {Nintendo Switch} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as nintendoSwitch
+rectangle "Samsung Range\n[[http://192.168.x.x {Samsung Range} 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as samsungRange
+
+' ### PHONES/COMPUTERS ###
+rectangle "<$cell_phone_iphone_stand_alone>\niPhone\n(User1)\nDHCP\nMA:CA:DD:RE:SS:XX" as user1Iphone
+rectangle "<$device_laptop>\nMacbook Pro\n(User1)\nDHCP\nMA:CA:DD:RE:SS:XX" as user1MacbookProWifi
+rectangle "<$device_laptop>\nMacbook Pro\n(User1)\nDHCP\nMA:CA:DD:RE:SS:XX" as user1MacbookProEthernet
+rectangle "<$device_laptop>\nMacbook Pro\n(User1@CoBank)\nDHCP\nMA:CA:DD:RE:SS:XX" as cobankMacbookPro
+rectangle "<$device_tablet_ipad>\niPad\n(User1)\nDHCP\nMA:CA:DD:RE:SS:XX" as user1Ipad
+
+rectangle "<$cell_phone_iphone_stand_alone>\niPhone\n(User2)\nDHCP\nMA:CA:DD:RE:SS:XX" as user2Iphone
+rectangle "<$device_laptop>\nMacbook Pro\n(User2)\nDHCP\nMA:CA:DD:RE:SS:XX" as user2MacbookPro
+rectangle "<$device_laptop>\nWindows\n(User2)\nDHCP\nMA:CA:DD:RE:SS:XX" as user2WorkLaptopWindows
+rectangle "Apple\n(User2) Watch\nDHCP\nMA:CA:DD:RE:SS:XX" as user2Watch
+
+rectangle "Raspberry Pi 5\nPoE Hat\nAI Hat\nRpi 51\nmoma-server\n[[http://192.168.x.x 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rpi51 #pink
+rectangle "Raspberry Pi 5\nPoE Hat\nAI Hat\nRpi 52\nmoma-private\n[[http://192.168.x.x 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rpi52 #pink
+rectangle "Raspberry Pi 5\nPoE Hat\nAI Hat\nRpi 53\nmoma-database\n[[http://192.168.x.x 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rpi53 #pink
+rectangle "Raspberry Pi 5\nPoE Hat\nAI Hat\nRpi 54\nmoma-public\n[[http://192.168.x.x 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rpi54 #pink
+rectangle "Raspberry Pi 5\nPoE Hat\nAI Hat\nRpi 55\ndocumentation\n[[http://192.168.x.x 192.168.x.x]]\nMA:CA:DD:RE:SS:XX" as rpi55 #pink
+rectangle "Raspberry Pi 5\nHome Assisstant\n[[http://192.168.x.x 192.168.x.x]]\n[[http://homeassistant.local:8123 homeassistant.local]]\nMA:CA:DD:RE:SS:XX" as homeAssisstant
+
+' ### CONNECTION POINTS/ETHERNET ###
+circle "Bedroom\nRJ45 1" as bedroomRJ45port1
+circle "User1 Office\nRJ45 2" as user1OfficeRJ45port2
+circle "User1 Office\nRJ45 3" as user1OfficeRJ45port3
+circle "User1 Office\nRJ45 4" as user1OfficeRJ45port4
+circle "User2 Office\nRJ45 5" as user2OfficeRJ45port5
+circle "User2 Office\nRJ45 6" as user2OfficeRJ45port6
+rectangle "Sonnet\nSolo 10Gb Adapter" as sonnet10Gb
+
+
+internet <<===>> modem
+modem <<===>> router
+
+' ### WIRELESS CONNECTIONS ###
+together {
+	router <.....up[#DarkGoldenRod].> appleTvLivingRoom
+	router <....up[#DarkGoldenRod].> sonyPs5
+	router <...up[#DarkGoldenRod].> nintendoSwitch
+	router <..up[#DarkGoldenRod].> dogCamera2
+	router <.up[#DarkGoldenRod].> dogCamera1
+}
+
+together {
+	router <.....up[#DarkGoldenRod].> schlage
+	router <....up[#DarkGoldenRod].> ecobeeThermostat
+	router <...up[#DarkGoldenRod].> samsungRange
+	router <..up[#DarkGoldenRod].> mySmartBlindsHub
+	router <.up[#DarkGoldenRod].> appleTvBasement
+	router <.....up[#DarkGoldenRod].> samsungTv
+	router <....up[#DarkGoldenRod].> brotherPrinterWireless
+	router <...up[#blue].> ender3dPrinter
+	router <..up[#green].> rachio
+	router <.up[#green].> smartthingshub
+}
+
+together {
+	router <....up[#green].> user1Iphone
+	router <...up[#green].> cobankMacbookPro
+	router <..up[#green].> user1MacbookProWifi
+	router <.up[#green].> user1Ipad
+	router <....up[#green].> user2WorkLaptopWindows
+	router <...up[#green].> user2Iphone
+	router <..up[#green].> user2MacbookPro
+	router <.up[#green].> user2Watch
+}
+
+' together {
+' 	router <.right[#green].> rpi51
+' 	router <.right[#green].> rpi52
+' 	router <.right[#green].> rpi53
+' 	router <.right[#green].> rpi54
+' 	router <.right[#green].> rpi55
+' }
+
+' ### WIRED CONNECTIONS ###
+patchPanelport23 <<-up->> router
+patchPanelport24 <<-up->> router
+
+together {
+	patchPanelport13 <<-up->> nasPort4
+	patchPanelport14 <<-up->> nasPort3
+	patchPanelport15 <<-up->> nasPort2
+	patchPanelport16 <<-up->> nasPort1
+}
+
+patchPanelport13 <<----down->> switch1port13
+patchPanelport14 <<----down->> switch1port14
+patchPanelport15 <<----down->> switch1port15
+patchPanelport16 <<----down->> switch1port16
+patchPanelport23 <<----down->> switch1port23
+patchPanelport24 <<----down->> switch1port24
+
+switch1port12 <<-->> patchPanelport12
+patchPanelport12 <<---down->> philipsHuesHub
+
+switch1port22 <<---->> poeSwitch1port8
+patchPanelport3 <<-->> nasPort5
+
+together {
+	patchPanelport1 <<---down->> bedroomRJ45port1
+	patchPanelport2 <<---down->> user1OfficeRJ45port2
+	patchPanelport3 <<---down->> user1OfficeRJ45port3
+	patchPanelport4 <<---down->> user1OfficeRJ45port4
+	patchPanelport5 <<---down->> user2OfficeRJ45port5
+	patchPanelport6 <<---down->> user2OfficeRJ45port6
+}
+
+user1OfficeRJ45port2 <<-->> poeSwitch2
+user1OfficeRJ45port4 <<-->> brotherPrinterEthernet
+user1OfficeRJ45port3 <<-->> sonnet10Gb
+sonnet10Gb <<-down->> user1MacbookProEthernet
+
+together {
+	patchPanelport17 <<-up[#red]->> poeSwitch1port1
+	patchPanelport18 <<-up[#red]->> poeSwitch1port2
+	patchPanelport19 <<-up[#red]->> poeSwitch1port3
+	patchPanelport20 <<-up[#red]->> poeSwitch1port4
+	patchPanelport21 <<-up[#red]->> poeSwitch1port5
+}
+
+together {
+	patchPanelport17 <<--down[#red]->> camera1
+	patchPanelport18 <<--down[#red]->> camera2
+	patchPanelport19 <<--down[#red]->> camera3
+	patchPanelport20 <<--down[#red]->> camera4
+	patchPanelport21 <<--down[#red]->> poeInjectorPort1
+	poeInjectorPort1 <<--down[#red]->> camera5
+}
+
+together {
+	poeSwitch2port1 <<--down[#red]->> rpi51
+	poeSwitch2port2 <<--down[#red]->> rpi52
+	poeSwitch2port3 <<--down[#red]->> rpi53
+	poeSwitch2port7 <<--down[#red]->> rpi54
+	poeSwitch2port8 <<--down[#red]->> rpi55
+}
+
+skinparam legend {
+  backgroundColor #GhostWhite
+  entrySeparator #GhostWhite
+}
+
+legend top
+  <#GhostWhite,#GhostWhite>|        |= __Legend__ |
+	|<#DarkGoldenRod> - - - | WiFi 2.4Ghz (SSID)|
+	|<#blue> - - - | WiFi 5Ghz (SSID51)|
+	|<#green> - - - | WiFi 5Ghz (SSID52)|
+	|<#black>| Ethernet |
+  |<#red>| PoE Ethernet|
+  |<#pink>| PoE Device|
+endlegend
+
+title
+	Home Network Map
+	Open Systems Interconnection (OSI)
+	1. Physical
+	2. Data Link
+	3. Network
+
+end title
+
+footer
+	Version %version()
+	Last revised %date()
+	%filename()
+end footer
+
+@enduml
