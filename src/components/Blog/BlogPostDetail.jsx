@@ -8,7 +8,6 @@ import rehypeSlug from "rehype-slug";
 import rehypeCallouts from "rehype-callouts";
 import { blogPosts } from "./blogData";
 
-// import "./github-dark.css";
 import "./atom-one-dark.css";
 import "./BlogPostDetail.css";
 
@@ -18,18 +17,8 @@ const customComponents = {
   p: ({ children }) => <p className="blog-detail-p">{children}</p>,
   date: ({ children }) => <p className="blog-date">{children}</p>,
   blockquote: ({ children }) => <blockquote>{children}</blockquote>,
-  code: ({ className, children }) => {
-    return <code className={className}>{children}</code>;
-  },
-	img: (props) => (
-    <div className="markdown-img-wrapper">
-      <img
-        src={props.src}
-        alt={props.alt}
-        style={{ display: 'block', margin: '0 auto', maxWidth: '75%' }}
-      />
-    </div>
-  ),
+  code: ({ className, children }) => <code className={className}>{children}</code>,
+  img: (props) => <img src={props.src} alt={props.alt} className="blog-image" />,
 };
 
 const BlogPostDetail = () => {
@@ -58,21 +47,21 @@ const BlogPostDetail = () => {
 
   return (
     <div className="blog-detail-container">
-        <h4 className="blog-detail-title">{post.title}</h4>
-        <h6 className="blog-detail-subtitle">{post.subtitle}</h6>
+      <h4 className="blog-detail-title">{post.title}</h4>
+      <h6 className="blog-detail-subtitle">{post.subtitle}</h6>
 
-        <p className="blog-date">
-          {formattedDate} by {post.author}
-        </p>
+      <p className="blog-date">
+        {formattedDate} by {post.author}
+      </p>
 
-        <hr className="post-separator" />
+      <hr className="post-separator" />
 
-        <ReactMarkdown
-          children={post.content}
-          remarkPlugins={[]}
-          rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
-          components={customComponents}
-        />
+      <ReactMarkdown
+        children={post.content}
+        remarkPlugins={[]}
+        rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
+        components={customComponents}
+      />
     </div>
   );
 };

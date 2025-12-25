@@ -34,22 +34,29 @@ const Resume = () => {
   }, []);
 
   return (
-    <div className="resume-container" style={{ padding: "20px" }}>
-      <div className="resume" style={{ width: "100%", maxWidth: "900px", margin: "0 auto" }}>
-        <h4>Resume</h4>
-        <div
-          className="pdf-viewer-wrapper"
-          style={{
-            height: "80vh",
-            width: "100%",
-            border: "1px solid rgba(0, 0, 0, 0.1)",
-            overflow: "hidden",
-          }}>
+    <div className="resume-container">
+      <div className="resume">
+        <h4 style={{ margin: 0, color: "white" }}>Resume</h4>
+
+        <a
+          href={resume}
+          download="Elijah_Samuels_Resume.pdf"
+          className="mui-style-button"
+          onMouseOver={(e) => (e.target.style.backgroundColor = "rgba(255,255,255,0.1)")}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}>
+          <svg className="mui-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+          </svg>
+          DOWNLOAD RESUME
+        </a>
+
+        <div className="pdf-viewer-wrapper">
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
             <Viewer fileUrl={resume} defaultScale={SpecialZoomLevel.PageWidth} />
           </Worker>
         </div>
       </div>
+
       <div className="badges-container">
         <Badge badge={awsBadge} />
         <Badge badge={phistStoryDefcon33} />

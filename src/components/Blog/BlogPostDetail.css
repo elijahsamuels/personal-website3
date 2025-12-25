@@ -56,6 +56,12 @@
 	text-align: center
 }
 
+.blog-image {
+	display: block;
+	margin: 0 auto;
+	max-width: 75%;
+}
+
 .post-separator {
 	border: none;
 	border-top: 1px solid var(--color-border-subtle);
