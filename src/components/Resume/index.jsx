@@ -38,12 +38,7 @@ const Resume = () => {
       <div className="resume">
         <h4 style={{ margin: 0, color: "white" }}>Resume</h4>
 
-        <a
-          href={resume}
-          download="Elijah_Samuels_Resume.pdf"
-          className="mui-style-button"
-          onMouseOver={(e) => (e.target.style.backgroundColor = "rgba(255,255,255,0.1)")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "transparent")}>
+        <a href={resume} download="Elijah_Samuels_Software_Engineer_Resume.pdf" className="mui-style-button">
           <svg className="mui-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
           </svg>
