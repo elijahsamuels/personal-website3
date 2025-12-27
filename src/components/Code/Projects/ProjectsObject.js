@@ -59,14 +59,7 @@ const Projects = [
     skills_used: ["React", "JavaScript", "D3.js", "CSS", "HTML", "Netlify", "Github"],
     prod_link: "https://es-d3js.netlify.app/",
     github_link: "https://github.com/elijahsamuels/d3-starter",
-  },
-  {
-    name: "ElijahSamuels.com",
-    description: "Personal website project",
-    skills_used: ["React", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-    prod_link: "https://www.elijahsamuels.com",
-    github_link: "https://github.com/elijahsamuels/qrcode",
-  },
+  }
 ];
 
 export default Projects;
