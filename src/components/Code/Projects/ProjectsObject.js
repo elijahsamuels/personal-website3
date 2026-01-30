@@ -2,7 +2,7 @@ const Projects = [
   {
     name: "Path Carver",
     description:
-      "A shopping website based on a microservice architecture (frontend and backend application services) deployed to AWS. The infrastructure, including the PostgreSQL database, is managed via Terraform and fully automated through GitLab CI/CD.",
+      "A shopping website built for a friend based on a microservice architecture (frontend and backend application services) deployed to AWS. The infrastructure, including the PostgreSQL database, is managed via Terraform and fully automated through GitLab CI/CD.",
     skills_used: [
       "JavaScript",
       "React",
@@ -16,7 +16,7 @@ const Projects = [
       "Google Workspace",
     ],
     prod_link: "http://storefront-frontend-path-carver.s3-website-us-west-1.amazonaws.com",
-    gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
+    // gitlab_link: "",
   },
   {
     name: "Rosie",
@@ -24,6 +24,13 @@ const Projects = [
     skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
     prod_link: "https://rosiethebatdog.netlify.app",
     gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
+  },
+  {
+    name: "Band Venues",
+    description: "A search site to find various wedding venues in the Colorado, US region. Utilizes a lambda function to fetch data from MongoDB.",
+    skills_used: ["JavaScript", "React", "CSS", "HTML", "MongoDB", "Lambda", "Netlify", "Gitlab"],
+    prod_link: "https://band-venues.netlify.app",
+    // gitlab_link: "",
   },
   {
     name: "Wordle-clone",
@@ -34,7 +41,7 @@ const Projects = [
   },
   {
     name: "Dru Heller Website",
-    description: "A site built for a great musician and educator, Dru Heller.",
+    description: "A site built for a great musician and educator, Dru Heller. This was an collaboration with my friend, Kelsey Shiba",
     skills_used: ["Gatsby", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
     prod_link: "http://www.druhellermusic.com",
     github_link: "https://github.com/elijahsamuels/druheller",
