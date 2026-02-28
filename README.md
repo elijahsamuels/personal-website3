@@ -17,3 +17,4 @@ When pushing a commit, Github will push the changes to Netlify. Netlify will run
 ## Documentation
 
 - [TODOS](./docs/README-TODOS.md)
+- [Blogs to write](./docs/README-Blogs-to-write.md)

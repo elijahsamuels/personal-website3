@@ -22,6 +22,12 @@
 	padding: 0;
 }
 
+.post-list-item {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 10px;
+}
+
 .post-link {
 	font-size: 1rem;
 	text-decoration: none;

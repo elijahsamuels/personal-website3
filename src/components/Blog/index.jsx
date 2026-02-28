@@ -16,12 +16,13 @@ useEffect(() => {
     <div className="blog-index-container">
       <div className="blog-index-title">
         <h3>Tech Insights ({blogPosts.length})</h3>
+        <h6>A collection of thoughts, tips & tricks, and reminders to share</h6>
       </div>
       <ul className="post-list">
         {blogPosts
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((post) => (
-            <li key={post.slug}>
+            <li key={post.slug} className="post-list-item">
               <Link to={`/blog/${post.slug}`} className="post-link">
                 {post.title} - {post.slug}
               </Link>

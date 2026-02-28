@@ -6,8 +6,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeCallouts from "rehype-callouts";
+import remarkGfm from 'remark-gfm';
 import { blogPosts } from "./blogData";
-
 import "./atom-one-dark.css";
 import "./BlogPostDetail.css";
 
@@ -58,7 +58,8 @@ const BlogPostDetail = () => {
 
       <ReactMarkdown
         children={post.content}
-        remarkPlugins={[]}
+        // remarkPlugins={[]}
+				remarkPlugins={[remarkGfm]} // 2. Add it here
         rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
         components={customComponents}
       />
