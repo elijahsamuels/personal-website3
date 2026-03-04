@@ -9,4 +9,5 @@
 - [ ] Nginx
 - [ ] Redis, BullMQ & StudioBull
 - [ ] Authentication, Authorization, and Accounting
-- [ ] Documenation linking/directories
+- [ ] Documentation linking/directories
+- [ ] MQ - blind vs blob queues
