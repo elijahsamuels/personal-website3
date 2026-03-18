@@ -6,10 +6,11 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeCallouts from "rehype-callouts";
-import remarkGfm from 'remark-gfm';
+import remarkGfm from "remark-gfm";
 import { blogPosts } from "./blogData";
 import "./atom-one-dark.css";
 import "./BlogPostDetail.css";
+import Mermaid from "./Mermaid";
 
 const customComponents = {
   h1: ({ children }) => <h1 className="blog-detail-h1">{children}</h1>,
@@ -17,7 +18,21 @@ const customComponents = {
   p: ({ children }) => <p className="blog-detail-p">{children}</p>,
   date: ({ children }) => <p className="blog-date">{children}</p>,
   blockquote: ({ children }) => <blockquote>{children}</blockquote>,
-  code: ({ className, children }) => <code className={className}>{children}</code>,
+  // code: ({ className, children }) => <code className={className}>{children}</code>,
+  code: ({ inline, className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || "");
+    const isMermaid = match && match[1] === "mermaid";
+
+    if (!inline && isMermaid) {
+      return <Mermaid chart={String(children).replace(/\n$/, "")} />;
+    }
+
+    return (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
   img: (props) => <img src={props.src} alt={props.alt} className="blog-image" />,
 };
 
@@ -59,7 +74,7 @@ const BlogPostDetail = () => {
       <ReactMarkdown
         children={post.content}
         // remarkPlugins={[]}
-				remarkPlugins={[remarkGfm]} // 2. Add it here
+        remarkPlugins={[remarkGfm]} // 2. Add it here
         rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
         components={customComponents}
       />
