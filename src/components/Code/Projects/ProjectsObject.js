@@ -1,5 +1,27 @@
 const Projects = [
-  {
+{
+    name: "Atlas",
+    description:
+      "A distributed ecosystem featuring a Next.js public site, a React administrative site, and a Node.js server/API. The system utilizes a dedicated Redis/BullMQ service for asynchronous task processing and a PostgreSQL backend. Orchestrated via Nginx and hosted on a Raspberry Pi 5 (for dev env), the environment is securely exposed through Cloudflare Tunnels with full GitLab CI/CD automation.This is in development, and aspects do get refactored.",
+    skills_used: [
+      "Node.js",
+      "React",
+      "Next.js",
+      "MUI",
+      "PostgreSQL",
+      "Redis",
+      "BullMQ",
+      "Nginx",
+      "Cloudflare",
+      "GitLab CI/CD",
+      "Express",
+      "REST API"
+    ],
+    diagram_img: "/diagrams/atlas-arch.png",
+    prod_link: "https://atlas-app.globalentertainmentandtalent.com",
+    // gitlab_link: "https://gitlab.com/elijahsamuels", // Update this with your specific group/top-level link
+  },
+	  {
     name: "Path Carver",
     description:
       "A shopping website built for a friend based on a microservice architecture (frontend and backend application services) deployed to AWS. The infrastructure, including the PostgreSQL database, is managed via Terraform and fully automated through GitLab CI/CD.",
