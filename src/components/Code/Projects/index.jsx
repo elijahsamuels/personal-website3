@@ -70,20 +70,25 @@ const ProjectItem = ({ project, index }) => {
         </div>
       </Parallax>
 
-      {isOpen && (
-        <div className="modal-overlay" onClick={() => setIsOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>{project.name} Architecture</h3>
-              <MdClose className="modal-close" onClick={() => setIsOpen(false)} />
-            </div>
-            <div className="modal-image-wrapper">
-              <img src={project.diagram_img} alt="Diagram" className="modal-image" />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+{isOpen && (
+  <div className="modal-overlay" onClick={() => setIsOpen(false)}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-header">
+        <h3>{project.name} Architecture</h3>
+        <MdClose className="modal-close" onClick={() => setIsOpen(false)} />
+      </div>
+      
+      {/* The Scrollable Viewport */}
+      <div className="modal-scroll-area">
+        <img 
+          src={project.diagram_img} 
+          alt="Architecture Diagram" 
+          className="modal-image-native" 
+        />
+      </div>
+    </div>
+  </div>
+)}    </>
   );
 };
 

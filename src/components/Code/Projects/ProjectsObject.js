@@ -19,7 +19,7 @@ const Projects = [
     ],
     diagram_img: "/diagrams/atlas-arch.png",
     prod_link: "https://atlas-app.globalentertainmentandtalent.com",
-    // gitlab_link: "https://gitlab.com/elijahsamuels", // Update this with your specific group/top-level link
+    // gitlab_link: "https://gitlab.com/elijahsamuels",
   },
 	  {
     name: "Path Carver",
@@ -31,9 +31,9 @@ const Projects = [
       "Node",
       "CSS",
       "HTML",
-      "REST",
+      "REST API",
       "AWS",
-      "Gitlab",
+      "GitLab CI/CD",
       "Terraform",
       "Google Workspace",
     ],
