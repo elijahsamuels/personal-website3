@@ -6,6 +6,7 @@ import About from "./components/About";
 import Blog from "./components/Blog";
 import ScrollIndicator from "./components/ScrollIndicator";
 import BlogPostDetail from "./components/Blog/BlogPostDetail";
+import TagIndex from "./components/Blog/TagIndex";
 import Index from "./components/Index";
 // import Music from "./components/Music";
 // import Calendar from "./components/Music/Calendar";
@@ -21,7 +22,6 @@ import Navbar from "./components/NavBar";
 // import { Navbar2 as Navbar } from "./components/Navbar2";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
-
 const App = () => {
   return (
     <div>
@@ -46,6 +46,11 @@ const App = () => {
           </Route>
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostDetail />} />
+
+          {/* 2. Add the dynamic tags route */}
+          <Route path="/tags/:tagName" element={<TagIndex />} />
         </Routes>
       </div>
       <Footer />

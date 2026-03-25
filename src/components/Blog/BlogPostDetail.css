@@ -149,3 +149,33 @@ pre {
 	font-size: 0.9em;
 	white-space: nowrap;
 }
+
+/* ===================================================
+   TAGS STYLES
+   =================================================== */
+
+.blog-tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.blog-tag {
+	padding: 0.25rem 0.5rem;
+	background-color: rgba(121, 166, 255, 0.1); /* 10% opacity of your --color-accent-link */
+	color: var(--color-accent-link) !important;
+	border-radius: 9999px; /* Creates the pill shape */
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none !important;
+	transition: background-color 0.2s ease;
+}
+
+.blog-tag:hover {
+	background-color: rgba(121, 166, 255, 0.25); /* Brightens on hover */
+	text-decoration: none !important;
+}

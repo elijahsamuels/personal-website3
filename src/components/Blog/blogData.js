@@ -21,8 +21,9 @@ const parseFrontmatter = (rawContent) => {
   const content = parts.slice(2).join("---").trim();
   const data = {};
 
-  frontmatterBlock.split("\n").forEach((line) => {
-    const [key, valueString] = line.split(": ");
+frontmatterBlock.split("\n").forEach((line) => {
+    const [key, ...valueParts] = line.split(": "); // Use rest operator in case values have colons
+    const valueString = valueParts.join(": ");
 
     if (key && valueString) {
       const trimmedKey = key.trim();
@@ -30,11 +31,15 @@ const parseFrontmatter = (rawContent) => {
 
       if (trimmedKey === "date") {
         data.date = new Date(trimmedValue);
+      } else if (trimmedKey === "tags") {
+        // Remove any brackets/quotes just in case, then split into an array
+        const cleanTags = trimmedValue.replace(/^\[|\]$/g, "").replace(/['"]/g, "");
+        data.tags = cleanTags.split(",").map(tag => tag.trim()).filter(Boolean);
+      } else {
+        data[trimmedKey] = trimmedValue;
       }
-      data[trimmedKey] = trimmedValue;
     }
-  });
-  return { data, content };
+  });  return { data, content };
 };
 
 export const blogPosts = Object.keys(modules).map((path) => {
@@ -43,13 +48,14 @@ export const blogPosts = Object.keys(modules).map((path) => {
   const fileNameWithExt = path.substring(path.lastIndexOf("/") + 1);
   const slug = fileNameWithExt.replace(/\.md$/, "");
 
-  return {
+return {
     slug: slug,
     title: data.title || "Untitled Post",
-    subtitle: data.subtitle || null,
-    date: data.date,
-    author: data.author,
+    subtitle: data.subtitle || "",
+    author: data.author || "Unknown",
+    date: data.date || "Unknown",
     content: content,
+    tags: data.tags || [], // <--- ADD THIS LINE HERE
   };
 });
 

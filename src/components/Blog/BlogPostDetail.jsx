@@ -1,7 +1,6 @@
-// src/Blog/BlogPostDetail.js
-
 import { useMemo, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom"; // Added Link
+import { Helmet } from "react-helmet-async"; // Added Helmet for SEO
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
@@ -18,7 +17,6 @@ const customComponents = {
   p: ({ children }) => <p className="blog-detail-p">{children}</p>,
   date: ({ children }) => <p className="blog-date">{children}</p>,
   blockquote: ({ children }) => <blockquote>{children}</blockquote>,
-  // code: ({ className, children }) => <code className={className}>{children}</code>,
   code: ({ inline, className, children, ...props }) => {
     const match = /language-(\w+)/.exec(className || "");
     const isMermaid = match && match[1] === "mermaid";
@@ -60,8 +58,37 @@ const BlogPostDetail = () => {
     day: "numeric",
   });
 
+  const keywordsString = post.tags?.join(", ") || "";
+
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    datePublished: post.date,
+    keywords: keywordsString,
+  };
+
   return (
     <div className="blog-detail-container">
+      <Helmet>
+        <title>Elijah Samuels | {post.title}</title>
+        <meta name="description" content={post.subtitle || `Read ${post.title} by ${post.author}`} />
+        <meta name="keywords" content={keywordsString} />
+
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.subtitle || `Read ${post.title} by ${post.author}`} />
+        <meta property="og:type" content="article" />
+        {post.tags?.map((tag) => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
+
+        <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+      </Helmet>
+
       <h4 className="blog-detail-title">{post.title}</h4>
       <h6 className="blog-detail-subtitle">{post.subtitle}</h6>
 
@@ -69,15 +96,21 @@ const BlogPostDetail = () => {
         {formattedDate} by {post.author}
       </p>
 
-      <hr className="post-separator" />
-
+      {post.tags?.length > 0 && (
+        <div className="blog-tags-container">
+          {post.tags.map((tag) => (
+            <Link key={tag} to={`/tags/${tag.toLowerCase()}`} className="blog-tag">
+              #{tag}
+            </Link>
+          ))}
+        </div>
+      )}
       <ReactMarkdown
-        children={post.content}
-        // remarkPlugins={[]}
-        remarkPlugins={[remarkGfm]} // 2. Add it here
-        rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}
         components={customComponents}
-      />
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}>
+        {post.content}
+      </ReactMarkdown>
     </div>
   );
 };
