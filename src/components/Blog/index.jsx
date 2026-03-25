@@ -31,24 +31,15 @@ const Blog = () => {
                 style={{ fontSize: "1.25rem", fontWeight: "600", textDecoration: "none" }}>
                 {post.title}
               </Link>
-
               {post.tags?.length > 0 && (
-                <div className="flex gap-2 mt-1">
+                <div className="post-tags-container">
                   {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      style={{
-                        fontSize: "0.65rem",
-                        color: "#d7d6d6",
-                        marginRight: "8px",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
-                      }}>
+                    <span key={tag} className="post-tag">
                       #{tag}
                     </span>
                   ))}
                 </div>
-              )}
+              )}{" "}
             </li>
           ))}
       </ul>

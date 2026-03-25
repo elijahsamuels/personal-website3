@@ -42,16 +42,15 @@ const TagIndex = () => {
               <Link to={`/blog/${post.slug}`} className="post-link">
                 {post.title}
               </Link>
-
               {post.tags?.length > 0 && (
-                <div className="flex gap-2 mt-2">
+                <div className="post-tags-container">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="text-xs text-gray-500">
-                      #{tag}{" "}
+                    <span key={tag} className="post-tag">
+                      #{tag}
                     </span>
                   ))}
                 </div>
-              )}
+              )}{" "}
             </li>
           ))}
         </ul>

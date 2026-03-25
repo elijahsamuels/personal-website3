@@ -39,3 +39,22 @@
 	transition: 125ms ease-in-out;
 	color: #bbb9ffaa;
 }
+
+/* ===================================================
+   INDEX POST TAGS (Responsive Layout)
+   =================================================== */
+
+.post-tags-container {
+	display: flex;
+	flex-wrap: wrap; /* Pushes tags to a new line on small screens */
+	gap: 0.4rem 0.75rem; /* row-gap, column-gap */
+	margin-top: 0.4rem;
+}
+
+.post-tag {
+	font-size: 0.65rem;
+	color: #a0a0a0; /* Matches your subtle text variable */
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	white-space: nowrap; /* Keeps the '#' and the word glued together */
+}
