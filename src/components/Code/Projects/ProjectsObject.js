@@ -19,7 +19,7 @@ const Projects = [
 		],
 		diagram_img: "/diagrams/atlas-arch.png",
 		prod_links: [
-			{ name: "Atlas App", url: "https://atlas-app.globalentertainmentandtalent.com" },
+			// { name: "Atlas App", url: "https://atlas-app.globalentertainmentandtalent.com" },
 			{ name: "Peak Perspective Photography", url: "https://peakperspectivephotography.globalentertainmentandtalent.com" },
 			{ name: "Summit Harvest Catering", url: "https://summitharvestcatering.globalentertainmentandtalent.com" },
 			{ name: "Blue Spruce Florist", url: "https://bluespruceflorist.globalentertainmentandtalent.com" }
@@ -45,7 +45,9 @@ const Projects = [
 			"REST API"
 		],
 		diagram_img: "/diagrams/atlas-arch.png",
-		prod_link: "https://atlas-app.globalentertainmentandtalent.com",
+		prod_links: [
+			{ name: "Atlas Admin App", url: "https://atlas-app.globalentertainmentandtalent.com" }
+		],
 		// gitlab_link: "https://gitlab.com/elijahsamuels",
 	},
 	{
@@ -64,58 +66,69 @@ const Projects = [
 			"Terraform",
 			"Google Workspace",
 		],
-		prod_link: "http://storefront-frontend-path-carver.s3-website-us-west-1.amazonaws.com",
+		prod_links: [
+			{ name: "Path Carver", url: "http://storefront-frontend-path-carver.s3-website-us-west-1.amazonaws.com" }
+		],
 		// gitlab_link: "",
 	},
 	{
 		name: "Rosie",
 		description: "A website for my dog, Rosie to practice Gitlab GraphQL API",
 		skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
-		prod_link: "https://rosiethebatdog.netlify.app",
-		gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
+		prod_links: [
+			{ name: "Rosie", url: "https://rosiethebatdog.netlify.app" }
+		],
+		// gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
 	},
 	{
 		name: "Band Venues",
 		description: "A search site to find various wedding venues in the Colorado, US region. Utilizes a lambda function to fetch data from MongoDB.",
 		skills_used: ["JavaScript", "React", "CSS", "HTML", "MongoDB", "Lambda", "Netlify", "Gitlab"],
-		prod_link: "https://band-venues.netlify.app",
+		prod_links: [
+			{ name: "Band Venues", url: "https://band-venues.netlify.app" }
+		],
 		// gitlab_link: "",
 	},
 	{
 		name: "Wordle-clone",
 		description: "A clone of the popular word game, Wordle!",
 		skills_used: ["JavaScript", "Node", "CSS", "HTML", "Heroku", "Github"],
-		prod_link: "https://wordle-5.netlify.app/",
-		github_link: "https://github.com/elijahsamuels/wordle-clone",
+		// prod_link: "https://wordle-5.netlify.app/",
+		prod_links: [
+			{ name: "Wordle-clone", url: "https://wordle-5.netlify.app/" }
+		],
+		// github_link: "https://github.com/elijahsamuels/wordle-clone",
 	},
 	{
 		name: "Dru Heller Website",
 		description: "A site built for a great musician and educator, Dru Heller. This was an collaboration with my friend, Kelsey Shiba",
 		skills_used: ["Gatsby", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-		prod_link: "http://www.druhellermusic.com",
-		github_link: "https://github.com/elijahsamuels/druheller",
+		prod_links: [
+			{ name: "Dru Heller Website", url: "http://www.druhellermusic.com" }
+		],
+		// gitlab_link: "https://github.com/elijahsamuels/druheller",
 	},
-	{
-		name: "QRCode",
-		description: "Get your free QR code here!",
-		skills_used: ["React", "React-QRcode", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-		prod_link: "https://free-qrcode.netlify.app",
-		github_link: "https://github.com/elijahsamuels/qrcode",
-	},
-	{
-		name: "Weather App",
-		description: "Check the weather a city",
-		skills_used: ["React", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-		prod_link: "https://es-weather.netlify.app/",
-		github_link: "https://github.com/elijahsamuels/qrcode",
-	},
-	{
-		name: "D3.js",
-		description: "Examples visualizing data using D3.js",
-		skills_used: ["React", "JavaScript", "D3.js", "CSS", "HTML", "Netlify", "Github"],
-		prod_link: "https://es-d3js.netlify.app/",
-		github_link: "https://github.com/elijahsamuels/d3-starter",
-	}
+	// {
+	// 	name: "QRCode",
+	// 	description: "Get your free QR code here!",
+	// 	skills_used: ["React", "React-QRcode", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
+	// 	prod_link: "https://free-qrcode.netlify.app",
+	// 	github_link: "https://github.com/elijahsamuels/qrcode",
+	// },
+	// {
+	// 	name: "Weather App",
+	// 	description: "Check the weather a city",
+	// 	skills_used: ["React", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
+	// 	prod_link: "https://es-weather.netlify.app/",
+	// 	github_link: "https://github.com/elijahsamuels/qrcode",
+	// },
+	// {
+	// 	name: "D3.js",
+	// 	description: "Examples visualizing data using D3.js",
+	// 	skills_used: ["React", "JavaScript", "D3.js", "CSS", "HTML", "Netlify", "Github"],
+	// 	prod_link: "https://es-d3js.netlify.app/",
+	// 	github_link: "https://github.com/elijahsamuels/d3-starter",
+	// }
 ];
 
 export default Projects;

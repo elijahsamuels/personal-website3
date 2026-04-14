@@ -160,62 +160,63 @@
 	object-fit: contain;
 	display: block;
 	border-radius: 4px;
-/* Site Preview Styles */
-.site-preview-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 6px;
-	transition: 250ms ease-in-out;
-	width: 120px;
-}
 
-.site-preview-container:hover {
-	transform: scale(1.05);
-}
+	/* Site Preview Styles */
+	.site-preview-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		transition: 250ms ease-in-out;
+		width: 120px;
+	}
 
-.site-preview-iframe-wrapper {
-	width: 120px;
-	height: 68px;
-	overflow: hidden;
-	position: relative;
-	border-radius: 6px;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-	background: #fff;
-	flex-shrink: 0;
-}
+	.site-preview-container:hover {
+		transform: scale(1.05);
+	}
 
-.site-preview-iframe {
-	width: 1200px;
-	height: 680px;
-	border: none;
-	transform: scale(0.1);
-	transform-origin: 0 0;
-	pointer-events: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+	.site-preview-iframe-wrapper {
+		width: 120px;
+		height: 68px;
+		overflow: hidden;
+		position: relative;
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+		background: #fff;
+		flex-shrink: 0;
+	}
 
-.site-preview-fallback {
-	width: 120px;
-	height: 68px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 6px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
+	.site-preview-iframe {
+		width: 1200px;
+		height: 680px;
+		border: none;
+		transform: scale(0.1);
+		transform-origin: 0 0;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 
-.site-preview-label {
-	font-size: 0.7rem;
-	color: #fff;
-	text-align: center;
-	line-height: 1.2;
-	font-weight: 500;
-	white-space: normal;
-	word-wrap: break-word;
-}
+	.site-preview-fallback {
+		width: 120px;
+		height: 68px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
 
+	.site-preview-label {
+		font-size: 0.7rem;
+		color: #fff;
+		text-align: center;
+		line-height: 1.2;
+		font-weight: 500;
+		white-space: normal;
+		word-wrap: break-word;
+	}
+}
