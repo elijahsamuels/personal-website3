@@ -4,7 +4,7 @@
 
 - [X] JWT (JSON Web Tokens)
 - [X] Documentation linking/directories
-- [ ] MQ for sending emails - Part 1
+- [X] MQ for sending emails - Part 1
   - [ ] Comparison - blind vs blob queues
 - [ ] MQ for sending emails - Part 2
   - [ ] Create a sequence diagram for blind queues
