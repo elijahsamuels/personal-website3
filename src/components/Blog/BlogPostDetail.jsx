@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, Children } from "react";
 import { useParams, Navigate, Link } from "react-router-dom"; // Added Link
 import { Helmet } from "react-helmet-async"; // Added Helmet for SEO
 import ReactMarkdown from "react-markdown";
@@ -14,7 +14,21 @@ import Mermaid from "./Mermaid";
 const customComponents = {
   h1: ({ children }) => <h1 className="blog-detail-h1">{children}</h1>,
   h2: ({ children }) => <h2 className="blog-detail-h2">{children}</h2>,
-  p: ({ children }) => <p className="blog-detail-p">{children}</p>,
+  p: ({ children }) => {
+    const childrenArray = Children.toArray(children);
+    const hasBadge = childrenArray.some(
+      (child) =>
+        child &&
+        child.props &&
+        child.props.src &&
+        child.props.src.includes("/badges/")
+    );
+    return (
+      <p className={hasBadge ? "blog-detail-p-badges" : "blog-detail-p"}>
+        {children}
+      </p>
+    );
+  },
   date: ({ children }) => <p className="blog-date">{children}</p>,
   blockquote: ({ children }) => <blockquote>{children}</blockquote>,
   code: ({ inline, className, children, ...props }) => {
@@ -31,7 +45,16 @@ const customComponents = {
       </code>
     );
   },
-  img: (props) => <img src={props.src} alt={props.alt} className="blog-image" />,
+  img: (props) => {
+    const isBadge = props.src && props.src.includes("/badges/");
+    return (
+      <img
+        src={props.src}
+        alt={props.alt}
+        className={isBadge ? "blog-badge-image" : "blog-image"}
+      />
+    );
+  },
 };
 
 const BlogPostDetail = () => {

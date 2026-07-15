@@ -58,8 +58,32 @@
 
 .blog-image {
 	display: block;
-	margin: 0 auto;
+	margin: 2rem auto;
 	max-width: 75%;
+	border-radius: 8px;
+}
+
+.blog-detail-p-badges {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5rem;
+	margin: 2.5rem 0;
+	flex-wrap: wrap;
+}
+
+.blog-badge-image {
+	max-height: 150px;
+	width: auto;
+	object-fit: contain;
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+	transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.blog-badge-image:hover {
+	transform: scale(1.06) translateY(-4px);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .post-separator {
