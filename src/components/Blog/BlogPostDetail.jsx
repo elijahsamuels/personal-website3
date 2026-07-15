@@ -112,28 +112,35 @@ const BlogPostDetail = () => {
         <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
       </Helmet>
 
-      <h4 className="blog-detail-title">{post.title}</h4>
-      <h6 className="blog-detail-subtitle">{post.subtitle}</h6>
+      <header className="blog-detail-header">
+        <h1 className="blog-detail-title">{post.title}</h1>
+        {post.subtitle && <p className="blog-detail-subtitle">{post.subtitle}</p>}
 
-      <p className="blog-date">
-        {formattedDate} by {post.author}
-      </p>
-
-      {post.tags?.length > 0 && (
-        <div className="blog-tags-container">
-          {post.tags.map((tag) => (
-            <Link key={tag} to={`/tags/${tag.toLowerCase()}`} className="blog-tag">
-              #{tag}
-            </Link>
-          ))}
+        <div className="blog-meta">
+          <span className="blog-author">By {post.author}</span>
+          <span className="blog-meta-separator">•</span>
+          <span className="blog-date">{formattedDate}</span>
         </div>
-      )}
-      <ReactMarkdown
-        components={customComponents}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}>
-        {post.content}
-      </ReactMarkdown>
+
+        {post.tags?.length > 0 && (
+          <div className="blog-tags-container">
+            {post.tags.map((tag) => (
+              <Link key={tag} to={`/tags/${tag.toLowerCase()}`} className="blog-tag">
+                #{tag}
+              </Link>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div className="blog-detail-content">
+        <ReactMarkdown
+          components={customComponents}
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight, rehypeSlug, rehypeCallouts]}>
+          {post.content}
+        </ReactMarkdown>
+      </div>
     </div>
   );
 };
