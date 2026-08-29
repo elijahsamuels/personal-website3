@@ -1,4 +1,24 @@
 const Projects = [
+{
+		name: "3D Printing QR Code",
+		description: "",
+		skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
+		prod_links: [
+			{ name: "link name", url: "https://elijahsamuels.gitlab.io/qr-code-printer" }
+		],
+		gitlab_link: "https://gitlab.com/elijahsamuels/qr-code-printer",
+	},
+{
+		name: "Template",
+		description: "",
+		skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
+		prod_links: [
+			{ name: "link name", url: "https://rosiethebatdog.netlify.app" }
+		],
+		gitlab_link: "https://gitlab.com/elijahsamuels/abc",
+	},
+
+
 	{
 		name: "Atlas (Public site)",
 		description:
@@ -89,25 +109,25 @@ const Projects = [
 		],
 		// gitlab_link: "",
 	},
-	{
-		name: "Wordle-clone",
-		description: "A clone of the popular word game, Wordle!",
-		skills_used: ["JavaScript", "Node", "CSS", "HTML", "Heroku", "Github"],
-		// prod_link: "https://wordle-5.netlify.app/",
-		prod_links: [
-			{ name: "Wordle-clone", url: "https://wordle-5.netlify.app/" }
-		],
-		// github_link: "https://github.com/elijahsamuels/wordle-clone",
-	},
-	{
-		name: "Dru Heller Website",
-		description: "A site built for a great musician and educator, Dru Heller. This was an collaboration with my friend, Kelsey Shiba",
-		skills_used: ["Gatsby", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-		prod_links: [
-			{ name: "Dru Heller Website", url: "http://www.druhellermusic.com" }
-		],
-		// gitlab_link: "https://github.com/elijahsamuels/druheller",
-	},
+	// {
+	// 	name: "Wordle-clone",
+	// 	description: "A clone of the popular word game, Wordle!",
+	// 	skills_used: ["JavaScript", "Node", "CSS", "HTML", "Heroku", "Github"],
+	// 	// prod_link: "https://wordle-5.netlify.app/",
+	// 	prod_links: [
+	// 		{ name: "Wordle-clone", url: "https://wordle-5.netlify.app/" }
+	// 	],
+	// 	// github_link: "https://github.com/elijahsamuels/wordle-clone",
+	// },
+	// {
+	// 	name: "Dru Heller Website",
+	// 	description: "A site built for a great musician and educator, Dru Heller. This was an collaboration with my friend, Kelsey Shiba",
+	// 	skills_used: ["Gatsby", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
+	// 	prod_links: [
+	// 		{ name: "Dru Heller Website", url: "http://www.druhellermusic.com" }
+	// 	],
+	// 	// gitlab_link: "https://github.com/elijahsamuels/druheller",
+	// },
 	// {
 	// 	name: "QRCode",
 	// 	description: "Get your free QR code here!",
