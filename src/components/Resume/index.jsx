@@ -26,6 +26,15 @@ const phistStoryDefcon33 = {
   url: "https://forum.defcon.org/node/252999#post252999",
 };
 
+const phistStoryDefcon34 = {
+  id: "",
+  host: "https://forum.defcon.org/node/255953#post255965",
+  img: "/badges/phistStoryDefcon34.png",
+  title: "Phish Stories - The Wizard (2026)",
+  issuer: "DEFCON 34",
+  url: "https://forum.defcon.org/node/255953#post255965",
+};
+
 const resume = "/ElijahSamuelsSoftwareEngineerResume.pdf";
 
 const Resume = () => {
@@ -55,6 +64,7 @@ const Resume = () => {
       <div className="badges-container">
         <Badge badge={awsBadge} />
         <Badge badge={phistStoryDefcon33} />
+        <Badge badge={phistStoryDefcon34} />
       </div>
     </div>
   );
