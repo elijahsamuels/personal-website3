@@ -9,18 +9,28 @@ h6 {
   text-align: center;
 }
 
+.App-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #282c34;
+}
+
 .App-body {
-	background-color: #282c34;
-	border-radius: 10px 10px 0px 0px;
-  min-height: 0vh;
+  background-color: #282c34;
+  border-radius: 10px 10px 0px 0px;
+  flex: 1;
+  min-height: calc(100vh - 65px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: #ffffff;
-	z-index: 1;
-	margin-top: -65px;
+  z-index: 1;
+  margin-top: -65px;
+  padding-top: 65px;
+  box-sizing: border-box;
 }
 
 .social-media-icon {

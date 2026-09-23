@@ -1,24 +1,63 @@
 const Projects = [
-	// {
-  // 		name: "Template",
-  // 		description: "",
-  // 		skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
-  // 		prod_links: [
-  // 			{ name: "link name", url: "https://rosiethebatdog.netlify.app" }
-  // 		],
-  // 		gitlab_link: "https://gitlab.com/elijahsamuels/abc",
-  // 	},
-	{
-    name: "3D Printing QR Code",
-    description: "",
-    skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
-    prod_links: [{ name: "link name", url: "https://elijahsamuels.gitlab.io/qr-code-printer" }],
-    gitlab_link: "https://gitlab.com/elijahsamuels/qr-code-printer",
+  {
+    name: "Musician Toolkit",
+    category: "Desktop Apps",
+    description: "A standalone desktop app built using Rust for high-performance audio processing, music transcription, real-time chord detection, independent pitch & speed modification, 64-band precision EQ, and AI stem separation.",
+    skills_used: ["Rust", "Tauri", "Audio DSP", "CoreML", "TypeScript", "React"],
+    prod_links: [
+      { name: "musiciantoolkit.app", url: "https://musiciantoolkit.app/" }
+    ],
+  },
+  {
+    name: "Movie to GIF",
+    category: "Web Tools",
+    description: "Fast, private, client-side video-to-GIF converter built with modern web technologies adhering to Apple HIG.",
+    skills_used: ["React", "WebAssembly", "FFmpeg", "Canvas", "Vite"],
+    prod_links: [
+      { name: "Live Site", url: "https://video-to-gif-747.pages.dev/" }
+    ],
+  },
+  {
+    name: "QR Code Printer",
+    category: "Web Tools",
+    description: "Tool to generate, preview, and export high-contrast QR codes optimized for 3D printing and physical fabrication.",
+    skills_used: ["JavaScript", "React", "Canvas", "3D Printing", "SVG"],
+    prod_links: [
+      { name: "Live Site", url: "https://qr-code-printer-dcy.pages.dev/" }
+    ],
+  },
+  {
+    name: "STL Repair",
+    category: "Web Tools",
+    description: "Client-side 3D model STL mesh inspector, geometry analyzer, and interactive file repair utility.",
+    skills_used: ["Three.js", "WebGL", "3D Geometry", "React", "Vite"],
+    prod_links: [
+      { name: "Live Site", url: "https://stl-repair-d7o.pages.dev/" }
+    ],
+  },
+  {
+    name: "AetherCut Background Remover",
+    category: "Web Tools",
+    description: "High-precision, on-device image background removal powered by client-side machine learning.",
+    skills_used: ["Machine Learning", "WebAssembly", "React", "Canvas", "Vite"],
+    prod_links: [
+      { name: "Live Site", url: "https://image-background-remover-dz8.pages.dev/" }
+    ],
+  },
+  {
+    name: "PDF OCR Converter",
+    category: "Web Tools",
+    description: "Convert scanned PDFs and documents into searchable, selectable text directly in the browser.",
+    skills_used: ["Tesseract.js", "PDF.js", "OCR", "React", "Vite"],
+    prod_links: [
+      { name: "Live Site", url: "https://ocr-pdf-6w4.pages.dev/" }
+    ],
   },
   {
     name: "Atlas (Public site)",
+    category: "Full Stack",
     description:
-      "A distributed ecosystem featuring a Next.js public site, a React administrative site, and a Node.js server/API. The system utilizes a dedicated Redis/BullMQ service for asynchronous task processing and a PostgreSQL backend. Orchestrated via Nginx and hosted on a Raspberry Pi 5 (for dev env), the environment is securely exposed through Cloudflare Tunnels with full GitLab CI/CD automation.This is in development, and aspects do get refactored.",
+      "A distributed ecosystem featuring a Next.js public site, a React administrative site, and a Node.js server/API. The system utilizes a dedicated Redis/BullMQ service for asynchronous task processing and a PostgreSQL backend. Orchestrated via Nginx and exposed through Cloudflare Tunnels.",
     skills_used: [
       "Node.js",
       "React",
@@ -35,20 +74,25 @@ const Projects = [
     ],
     diagram_img: "/diagrams/atlas-arch.png",
     prod_links: [
-      // { name: "Atlas App", url: "https://atlas-app.globalentertainmentandtalent.com" },
       {
         name: "Peak Perspective Photography",
         url: "https://peakperspectivephotography.globalentertainmentandtalent.com",
       },
-      { name: "Summit Harvest Catering", url: "https://summitharvestcatering.globalentertainmentandtalent.com" },
-      { name: "Blue Spruce Florist", url: "https://bluespruceflorist.globalentertainmentandtalent.com" },
+      {
+        name: "Summit Harvest Catering",
+        url: "https://summitharvestcatering.globalentertainmentandtalent.com",
+      },
+      {
+        name: "Blue Spruce Florist",
+        url: "https://bluespruceflorist.globalentertainmentandtalent.com",
+      },
     ],
-    // gitlab_link: "https://gitlab.com/elijahsamuels",
   },
   {
     name: "Atlas (Admin app)",
+    category: "Full Stack",
     description:
-      "A distributed ecosystem featuring a Next.js public site, a React administrative site, and a Node.js server/API. The system utilizes a dedicated Redis/BullMQ service for asynchronous task processing and a PostgreSQL backend. Orchestrated via Nginx and hosted on a Raspberry Pi 5 (for dev env), the environment is securely exposed through Cloudflare Tunnels with full GitLab CI/CD automation.This is in development, and aspects do get refactored.",
+      "Administrative dashboard for the Atlas platform with real-time operations, management workflows, and role-based permissions.",
     skills_used: [
       "Node.js",
       "React",
@@ -64,13 +108,15 @@ const Projects = [
       "REST API",
     ],
     diagram_img: "/diagrams/atlas-arch.png",
-    prod_links: [{ name: "Atlas Admin App", url: "https://atlas-app.globalentertainmentandtalent.com" }],
-    // gitlab_link: "https://gitlab.com/elijahsamuels",
+    prod_links: [
+      { name: "Atlas Admin App", url: "https://atlas-app.globalentertainmentandtalent.com" }
+    ],
   },
   {
     name: "Path Carver",
+    category: "Full Stack",
     description:
-      "A shopping website built for a friend based on a microservice architecture (frontend and backend application services) deployed to AWS. The infrastructure, including the PostgreSQL database, is managed via Terraform and fully automated through GitLab CI/CD.",
+      "A shopping website built for a friend based on a microservice architecture deployed to AWS. The infrastructure, including the PostgreSQL database, is managed via Terraform and fully automated through GitLab CI/CD.",
     skills_used: [
       "JavaScript",
       "React",
@@ -81,68 +127,30 @@ const Projects = [
       "AWS",
       "GitLab CI/CD",
       "Terraform",
-      "Google Workspace",
     ],
     prod_links: [
       { name: "Path Carver", url: "http://storefront-frontend-path-carver.s3-website-us-west-1.amazonaws.com" },
     ],
-    // gitlab_link: "",
   },
   {
     name: "Rosie",
-    description: "A website for my dog, Rosie to practice Gitlab GraphQL API",
-    skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "Gitlab"],
-    prod_links: [{ name: "Rosie", url: "https://rosiethebatdog.netlify.app" }],
-    // gitlab_link: "https://gitlab.com/elijahsamuels/rosie",
+    category: "Web Apps",
+    description: "A website for my dog Rosie to practice GitLab GraphQL API integrations.",
+    skills_used: ["JavaScript", "React", "CSS", "HTML", "GraphQL", "Netlify", "GitLab"],
+    prod_links: [
+      { name: "Rosie", url: "https://rosiethebatdog.netlify.app" }
+    ],
   },
   {
     name: "Band Venues",
+    category: "Full Stack",
     description:
-      "A search site to find various wedding venues in the Colorado, US region. Utilizes a lambda function to fetch data from MongoDB.",
-    skills_used: ["JavaScript", "React", "CSS", "HTML", "MongoDB", "Lambda", "Netlify", "Gitlab"],
-    prod_links: [{ name: "Band Venues", url: "https://band-venues.netlify.app" }],
-    // gitlab_link: "",
+      "A search site to find various wedding venues in the Colorado, US region. Utilizes a serverless function to fetch data from MongoDB.",
+    skills_used: ["JavaScript", "React", "CSS", "HTML", "MongoDB", "AWS Lambda", "Netlify", "GitLab"],
+    prod_links: [
+      { name: "Band Venues", url: "https://band-venues.netlify.app" }
+    ],
   },
-  // {
-  // 	name: "Wordle-clone",
-  // 	description: "A clone of the popular word game, Wordle!",
-  // 	skills_used: ["JavaScript", "Node", "CSS", "HTML", "Heroku", "Github"],
-  // 	// prod_link: "https://wordle-5.netlify.app/",
-  // 	prod_links: [
-  // 		{ name: "Wordle-clone", url: "https://wordle-5.netlify.app/" }
-  // 	],
-  // 	// github_link: "https://github.com/elijahsamuels/wordle-clone",
-  // },
-  // {
-  // 	name: "Dru Heller Website",
-  // 	description: "A site built for a great musician and educator, Dru Heller. This was an collaboration with my friend, Kelsey Shiba",
-  // 	skills_used: ["Gatsby", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-  // 	prod_links: [
-  // 		{ name: "Dru Heller Website", url: "http://www.druhellermusic.com" }
-  // 	],
-  // 	// gitlab_link: "https://github.com/elijahsamuels/druheller",
-  // },
-  // {
-  // 	name: "QRCode",
-  // 	description: "Get your free QR code here!",
-  // 	skills_used: ["React", "React-QRcode", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-  // 	prod_link: "https://free-qrcode.netlify.app",
-  // 	github_link: "https://github.com/elijahsamuels/qrcode",
-  // },
-  // {
-  // 	name: "Weather App",
-  // 	description: "Check the weather a city",
-  // 	skills_used: ["React", "JavaScript", "CSS", "HTML", "Netlify", "Github"],
-  // 	prod_link: "https://es-weather.netlify.app/",
-  // 	github_link: "https://github.com/elijahsamuels/qrcode",
-  // },
-  // {
-  // 	name: "D3.js",
-  // 	description: "Examples visualizing data using D3.js",
-  // 	skills_used: ["React", "JavaScript", "D3.js", "CSS", "HTML", "Netlify", "Github"],
-  // 	prod_link: "https://es-d3js.netlify.app/",
-  // 	github_link: "https://github.com/elijahsamuels/d3-starter",
-  // }
 ];
 
 export default Projects;

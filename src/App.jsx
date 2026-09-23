@@ -24,7 +24,7 @@ import Contact from "./components/Contact";
 import Resume from "./components/Resume";
 const App = () => {
   return (
-    <div>
+    <div className="App-root">
       <Navbar />
       <div className="App-body">
         <Routes>
@@ -40,6 +40,7 @@ const App = () => {
             <Route path="audio" element={<Audio />} />
             <Route path="video" element={<Video />} />
           </Route> */}
+          <Route path="/projects" element={<Projects />} />
           <Route path="code" element={<Code />}>
             <Route path="projects" element={<Projects />} />
             <Route path="skills" element={<Skills />} />
